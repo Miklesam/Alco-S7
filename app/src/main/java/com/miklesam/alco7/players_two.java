@@ -43,6 +43,7 @@ public class players_two extends AppCompatActivity {
 
         final ImageView[] turn = new ImageView[12];
         final ImageView[] Player = new ImageView[12];
+        final ImageView[] Ten = new ImageView[12];
 
 
         mInterstitialAd = new InterstitialAd(this);
@@ -77,6 +78,20 @@ public class players_two extends AppCompatActivity {
         Player[9]=findViewById(R.id.player10);
         Player[10]=findViewById(R.id.player11);
         Player[11]=findViewById(R.id.player12);
+
+
+        Ten[0]=findViewById(R.id.ten_1);
+        Ten[1]=findViewById(R.id.ten_2);
+        Ten[2]=findViewById(R.id.ten_3);
+        Ten[3]=findViewById(R.id.ten_4);
+        Ten[4]=findViewById(R.id.ten_5);
+        Ten[5]=findViewById(R.id.ten_6);
+        Ten[6]=findViewById(R.id.ten_7);
+        Ten[7]=findViewById(R.id.ten_8);
+        Ten[8]=findViewById(R.id.ten_9);
+        Ten[9]=findViewById(R.id.ten_10);
+        Ten[10]=findViewById(R.id.ten_11);
+        Ten[11]=findViewById(R.id.ten_12);
 
 
         final TextView NumCards=(TextView) findViewById(R.id.NumCards);
@@ -136,6 +151,7 @@ public class players_two extends AppCompatActivity {
 
         final ArrayList<ImageView> PlayerList = new ArrayList<ImageView>();
         final ArrayList<ImageView> TurnList = new ArrayList<ImageView>();
+        final ArrayList<ImageView> TenList = new ArrayList<ImageView>();
         if(Num==4)
         {
             PlayerList.add(Player[1]);
@@ -147,6 +163,11 @@ public class players_two extends AppCompatActivity {
             TurnList.add(turn[4]);
             TurnList.add(turn[7]);
             TurnList.add(turn[10]);
+
+            TenList.add(Ten[1]);
+            TenList.add(Ten[4]);
+            TenList.add(Ten[7]);
+            TenList.add(Ten[10]);
 
         }
         else if(Num==5)
@@ -257,9 +278,16 @@ public class players_two extends AppCompatActivity {
                 {
                     whattacard=randomcard.nextInt(cardlist.size());
                     Cardtaken.setImageResource((Integer) cardlist.get(whattacard));
-                    cardlist.remove(whattacard);
+
                     Cardtaken.setVisibility(View.VISIBLE);
                     Throwcard.setVisibility(View.VISIBLE);
+                    if (cardlist.get(whattacard).equals(R.drawable.ten_vini))
+                    {
+                        TenList.get(num[0]).setVisibility(View.VISIBLE);
+                    }
+
+                    cardlist.remove(whattacard);
+
                 }
                 else if (cardlist.size()==1)
                 {
