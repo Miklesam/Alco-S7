@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="horizontal"
+    tools:context=".Rools_activity">
+
+
+    <fragment
+        android:name="com.miklesam.alco7.Left_fragment"
+        android:id="@+id/asd"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_weight="2"
+        ></fragment>
+
+    <fragment
+        android:padding="10dp"
+        android:name="com.miklesam.alco7.Right_Fragment"
+        android:id="@+id/poi"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        ></fragment>
+
+
+
+
+
+</LinearLayout>

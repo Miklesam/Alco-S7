@@ -54,60 +54,6 @@
 
 
 
-        <LinearLayout
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal">
-
-            <ImageView
-                android:layout_width="30sp"
-                android:layout_height="30sp"
-                app:srcCompat="@drawable/tinyten"
-                android:id="@+id/ten_1"
-                android:visibility="invisible"
-                />
-
-            <LinearLayout
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:orientation="vertical">
-
-                <ImageView
-                    android:id="@+id/turn1"
-                    android:layout_width="100dp"
-                    android:layout_height="20dp"
-                    android:rotation="180"
-                    android:visibility="invisible"
-                    app:srcCompat="@drawable/your_turn" />
-
-
-
-                <ImageView
-                    android:id="@+id/player1"
-                    android:layout_width="100dp"
-                    android:layout_height="70dp"
-                    android:rotation="180"
-                    android:visibility="invisible"
-                    app:srcCompat="@drawable/plaer_icon" />
-
-            </LinearLayout>
-
-
-
-
-            <ImageView
-                android:layout_width="30sp"
-                android:layout_height="30sp"
-                app:srcCompat="@drawable/neweight"
-                android:id="@+id/eight_1"
-                android:visibility="invisible"
-                />
-
-
-
-
-
-        </LinearLayout>
 
         <LinearLayout
             android:layout_width="wrap_content"
@@ -160,46 +106,12 @@
 
         </LinearLayout>
 
-        <ImageView
-            android:layout_width="30sp"
-            android:layout_height="30sp"
-            app:srcCompat="@drawable/tinyten"
-            android:id="@+id/ten_3"
-            android:visibility="invisible"
-            />
-
-        <LinearLayout
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:orientation="vertical">
-
-            <ImageView
-                android:id="@+id/turn3"
-                android:layout_width="100dp"
-                android:layout_height="20dp"
-                android:rotation="180"
-                android:visibility="invisible"
-                app:srcCompat="@drawable/your_turn" />
 
 
-            <ImageView
-                android:id="@+id/player3"
-                android:layout_width="100dp"
-                android:layout_height="70dp"
-                android:rotation="180"
-                android:visibility="invisible"
-                app:srcCompat="@drawable/plaer_icon" />
-
-        </LinearLayout>
 
 
-        <ImageView
-        android:layout_width="30sp"
-        android:layout_height="30sp"
-        app:srcCompat="@drawable/neweight"
-        android:id="@+id/eight_3"
-        android:visibility="invisible"
-        />
+
+
 
 
 
@@ -216,45 +128,10 @@
         >
 
 
-        <ImageView
-            android:layout_width="30sp"
-            android:layout_height="30sp"
-            android:rotation="90"
-            app:srcCompat="@drawable/neweight"
-            android:id="@+id/eight_12"
-            android:visibility="invisible"
-            />
-
-        <LinearLayout
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal">
-
-            <ImageView
-                android:id="@+id/turn12"
-                android:layout_width="20dp"
-                android:layout_height="70dp"
-                app:srcCompat="@drawable/your_turnr"
-                android:visibility="invisible"/>
-
-            <ImageView
-                android:layout_width="100dp"
-                android:layout_height="70dp"
-                android:rotation="90"
-                android:id="@+id/player12"
-                android:visibility="invisible"
-                app:srcCompat="@drawable/plaer_icon" />
 
 
-        </LinearLayout>
-        <ImageView
-            android:layout_width="30sp"
-            android:layout_height="30sp"
-            android:rotation="90"
-            app:srcCompat="@drawable/tinyten"
-            android:id="@+id/ten_12"
-            android:visibility="invisible"
-            />
+
+
         <ImageView
             android:layout_width="30sp"
             android:layout_height="30sp"
@@ -294,54 +171,7 @@
             android:id="@+id/ten_11"
             android:visibility="invisible"
             />
-
-        <ImageView
-            android:layout_width="30sp"
-            android:layout_height="30sp"
-            android:rotation="90"
-            app:srcCompat="@drawable/neweight"
-            android:id="@+id/eight_10"
-            android:visibility="invisible"
-            />
-
-        <LinearLayout
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal">
-
-
-
-            <ImageView
-                android:id="@+id/turn10"
-                android:layout_width="20dp"
-                android:layout_height="70dp"
-                app:srcCompat="@drawable/your_turnr"
-                android:visibility="invisible"/>
-
-            <ImageView
-                android:layout_width="100dp"
-                android:layout_height="70dp"
-                android:rotation="90"
-                android:id="@+id/player10"
-                android:visibility="invisible"
-                app:srcCompat="@drawable/plaer_icon" />
-
-
-        </LinearLayout>
-
-        <ImageView
-            android:layout_width="30sp"
-            android:layout_height="30sp"
-            android:rotation="90"
-            app:srcCompat="@drawable/tinyten"
-            android:id="@+id/ten_10"
-            android:visibility="invisible"
-            />
-
-
-
-
-    </LinearLayout>
+ </LinearLayout>
 
 
 
@@ -354,68 +184,6 @@
         android:layout_centerVertical="true"
         android:layout_alignParentRight="true"
         >
-
-
-
-
-
-            <LinearLayout
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:orientation="vertical"
-                android:layout_gravity="right">
-
-                <ImageView
-                    android:layout_width="30sp"
-                    android:layout_height="30sp"
-                    android:rotation="-90"
-                    app:srcCompat="@drawable/tinyten"
-                    android:layout_gravity="right"
-                    android:id="@+id/ten_4"
-                    android:visibility="invisible"
-                    />
-
-                <LinearLayout
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:orientation="horizontal">
-
-                    <ImageView
-                        android:layout_width="100dp"
-                        android:layout_height="70dp"
-                        android:rotation="-90"
-                        android:id="@+id/player4"
-                        android:visibility="invisible"
-                        app:srcCompat="@drawable/plaer_icon" />
-
-                    <ImageView
-                        android:layout_width="20dp"
-                        android:layout_height="70dp"
-                        android:rotation="180"
-                        android:id="@+id/turn4"
-                        android:visibility="invisible"
-                        app:srcCompat="@drawable/your_turnr" />
-                </LinearLayout>
-
-
-
-                <ImageView
-                    android:layout_width="30sp"
-                    android:layout_height="30sp"
-                    android:rotation="-90"
-                    app:srcCompat="@drawable/neweight"
-                    android:layout_gravity="right"
-                    android:id="@+id/eight_4"
-                    android:visibility="invisible"
-                    />
-
-            </LinearLayout>
-
-
-
-
-
-
 
 
 
@@ -474,77 +242,7 @@
                     />
 
             </LinearLayout>
-
-
-
-
-
-
-
-
-            <LinearLayout
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:orientation="vertical"
-                android:layout_gravity="right">
-
-                <ImageView
-                    android:layout_width="30sp"
-                    android:layout_height="30sp"
-                    android:rotation="-90"
-                    app:srcCompat="@drawable/tinyten"
-                    android:layout_gravity="right"
-                    android:id="@+id/ten_6"
-                    android:visibility="invisible"
-                    />
-
-
-                <LinearLayout
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:orientation="horizontal">
-
-                    <ImageView
-                        android:layout_width="100dp"
-                        android:layout_height="70dp"
-                        android:rotation="-90"
-                        android:id="@+id/player6"
-                        android:visibility="invisible"
-                        app:srcCompat="@drawable/plaer_icon" />
-
-                    <ImageView
-                        android:layout_width="20dp"
-                        android:layout_height="70dp"
-                        android:rotation="180"
-                        android:id="@+id/turn6"
-                        android:visibility="invisible"
-                        app:srcCompat="@drawable/your_turnr" />
-                </LinearLayout>
-
-
-
-                <ImageView
-                    android:layout_width="30sp"
-                    android:layout_height="30sp"
-                    android:rotation="-90"
-                    app:srcCompat="@drawable/neweight"
-                    android:layout_gravity="right"
-                    android:id="@+id/eight_6"
-                    android:visibility="invisible"
-                    />
-
-            </LinearLayout>
-
-
-
-
-
-
-
-
-
-
-    </LinearLayout>
+  </LinearLayout>
 
 
 
@@ -593,56 +291,6 @@
 
 
 
-
-            <LinearLayout
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                android:layout_gravity="bottom">
-
-                <ImageView
-                    android:layout_width="30sp"
-                    android:layout_height="30sp"
-                    app:srcCompat="@drawable/neweight"
-                    android:layout_gravity="bottom"
-                    android:id="@+id/eight_9"
-                    android:visibility="invisible"
-                    />
-                <LinearLayout
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:orientation="vertical"
-                    >
-
-                    <ImageView
-                        android:id="@+id/player9"
-                        android:layout_width="100dp"
-                        android:layout_height="70dp"
-                        android:visibility="invisible"
-                        app:srcCompat="@drawable/plaer_icon" />
-
-                    <ImageView
-                        android:layout_width="100dp"
-                        android:layout_height="20dp"
-                        app:srcCompat="@drawable/your_turn"
-                        android:visibility="invisible"
-                        android:id="@+id/turn9"/>
-
-
-                </LinearLayout>
-
-
-
-                <ImageView
-                    android:layout_width="30sp"
-                    android:layout_height="30sp"
-                    app:srcCompat="@drawable/tinyten"
-                    android:layout_gravity="bottom"
-                    android:id="@+id/ten_9"
-                    android:visibility="invisible"
-                    />
-
-            </LinearLayout>
 
 
 
@@ -703,59 +351,7 @@
             </LinearLayout>
 
 
-
-
-
-
-
-            <LinearLayout
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="bottom"
-                android:orientation="horizontal">
-
-                <ImageView
-                    android:layout_width="30sp"
-                    android:layout_height="30sp"
-                    app:srcCompat="@drawable/neweight"
-                    android:layout_gravity="bottom"
-                    android:id="@+id/eight_7"
-                    android:visibility="invisible"
-                    />
-                <LinearLayout
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:orientation="vertical">
-
-                    <ImageView
-                        android:id="@+id/player7"
-                        android:layout_width="100dp"
-                        android:layout_height="70dp"
-                        android:visibility="invisible"
-                        app:srcCompat="@drawable/plaer_icon" />
-
-                    <ImageView
-                        android:layout_width="100dp"
-                        android:layout_height="20dp"
-                        app:srcCompat="@drawable/your_turn"
-                        android:visibility="invisible"
-                        android:id="@+id/turn7"/>
-
-                </LinearLayout>
-
-
-                <ImageView
-                    android:layout_width="30sp"
-                    android:layout_height="30sp"
-                    app:srcCompat="@drawable/tinyten"
-                    android:layout_gravity="bottom"
-                    android:id="@+id/ten_7"
-                    android:visibility="invisible"
-                    />
-
-            </LinearLayout>
-
-        </LinearLayout>
+</LinearLayout>
 
 
 

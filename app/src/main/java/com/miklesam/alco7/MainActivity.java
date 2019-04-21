@@ -17,10 +17,12 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         Button Game = findViewById(R.id.game);
+        Button Rools = findViewById(R.id.rools);
 
 
 
         final Intent intent = new Intent(this, number_of_players.class);
+        final Intent rools_intent = new Intent(this, Rools_activity.class);
 
 
 
@@ -40,6 +42,17 @@ public class MainActivity extends AppCompatActivity {
 
             }
         });
+
+
+
+        Rools.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(rools_intent);
+
+            }
+        });
+
 
     }
 }

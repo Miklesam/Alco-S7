@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context=".Right_Fragment"
+    android:layout_gravity="top"
+    android:orientation="vertical">
+
+    <!-- TODO: Update blank fragment layout -->
+
+            <ImageView
+                android:id="@+id/right_Ima"
+                android:layout_width="400sp"
+                android:layout_height="200sp"
+                android:layout_gravity="center"
+                app:srcCompat="@drawable/ace_chervi" />
+
+            <TextView
+                android:layout_gravity="center"
+                android:id="@+id/right_text"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Ace_chervi"
+                android:textSize="20sp"/>
+        <TextView
+             android:layout_gravity="center"
+            android:id="@+id/descr_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Ace_chervi" />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:text="back_to_menu"
+
+        />
+
+
+
+
+
+
+
+</LinearLayout>
