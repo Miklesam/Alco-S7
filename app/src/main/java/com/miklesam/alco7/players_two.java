@@ -7,9 +7,14 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
+import android.view.ViewGroup;
+import android.widget.AdapterView;
+import android.widget.BaseAdapter;
 import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
+import android.widget.ListView;
 import android.widget.TextView;
 
 import java.util.ArrayList;
@@ -22,7 +27,15 @@ import com.google.android.gms.ads.AdRequest;
 public class players_two extends AppCompatActivity {
 
     private InterstitialAd mInterstitialAd;
+    int[] IMAGES={R.drawable.ace_chervi,R.drawable.k_chervi,R.drawable.q_chervi,R.drawable.j_chervi,
+            R.drawable.ten_chervi,R.drawable.nine_chervi,R.drawable.eight_chervi,R.drawable.seven_chervi,
+            R.drawable.six_chervi
+    };
 
+
+
+    String NAMES[]={"Туз","Король","Дама","Валет","Десятка","Девятка","Восьмерка","Семерка","Шестерка"};
+    String Descriptions[]={"Выбери кто пьет!","Запрет","Поднять руку","Действие","Вопрос","Тема","Щит","Счет","Пьешь сам"};
 
 
     @SuppressLint("ResourceType")
@@ -39,6 +52,8 @@ public class players_two extends AppCompatActivity {
 
         final Button Throwcard = findViewById(R.id.throwcard);
         final Button Backtomenu = findViewById(R.id.back_to_menu);
+
+
 
         final ImageView[] turn = new ImageView[4];
         final ImageView[] Player = new ImageView[4];
@@ -69,6 +84,11 @@ public class players_two extends AppCompatActivity {
 
 
 
+
+
+
+
+
         final TextView NumCards=(TextView) findViewById(R.id.NumCards);
         NumCards.setText(String.valueOf(4));
         final Random random = new Random();
@@ -76,6 +96,7 @@ public class players_two extends AppCompatActivity {
         final Intent tomenuintent = new Intent(this, MainActivity.class);
         final ArrayList cardlist= new ArrayList();
 
+        final boolean[] card_is_taken = new boolean[1];
         cardlist.add(R.drawable.new_ace);
         cardlist.add(R.drawable.ace_chervi);
         cardlist.add(R.drawable.ace_kresti);
@@ -146,6 +167,7 @@ public class players_two extends AppCompatActivity {
         Cards.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                card_is_taken[0] =true;
 
                 Collections.shuffle(cardlist);
                 String count = (String) NumCards.getText();
@@ -215,7 +237,7 @@ public class players_two extends AppCompatActivity {
         Throwcard.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
+                card_is_taken[0]=false;
                 for (int i=0;i<had_have.length;i++)
                 {
                     if(had_have[i]==true)
@@ -291,7 +313,19 @@ public class players_two extends AppCompatActivity {
 
 
 
+
+
+
+
+
+
+
+
+
     }
+
+
+
 
 
 }
