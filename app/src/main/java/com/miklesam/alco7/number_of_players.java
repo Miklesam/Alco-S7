@@ -1,6 +1,7 @@
 package com.miklesam.alco7;
 
 import android.content.Intent;
+import android.content.pm.ActivityInfo;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -10,13 +11,16 @@ import android.widget.TextView;
 public class number_of_players extends AppCompatActivity {
     int cnt;
     String count;
+    final int[] Ocnt = new int[1];
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
+        setRequestedOrientation (ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
         setContentView(R.layout.activity_number_of_players);
 
         final TextView PlayersNum= (TextView)findViewById(R.id.count);
+
+
         Button Plus = (Button)findViewById(R.id.plus);
         Button Minus = (Button)findViewById(R.id.minus);
         Button Start = (Button)findViewById(R.id.start);
@@ -27,23 +31,24 @@ public class number_of_players extends AppCompatActivity {
 
         if (savedInstanceState!=null)
         {
-            cnt=savedInstanceState.getInt("number_players");
-            PlayersNum.setText(String.valueOf(cnt));
+            Ocnt[0] =savedInstanceState.getInt("number_players");
+            PlayersNum.setText(String.valueOf(Ocnt[0]));
         }
 
         count = (String) PlayersNum.getText();
-        cnt=Integer.parseInt(count);
+
 
         Plus.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
 
                 count = (String) PlayersNum.getText();
-                cnt=Integer.parseInt(count);
-                if(cnt<8)
+                int pluscnt=Integer.parseInt(count);
+                if(pluscnt<8)
                 {
-                    cnt++;
-                    PlayersNum.setText(String.valueOf(cnt));
+                    pluscnt++;
+                    PlayersNum.setText(String.valueOf(pluscnt));
+                    Ocnt[0] =pluscnt;
                 }
 
 
@@ -58,11 +63,12 @@ public class number_of_players extends AppCompatActivity {
             public void onClick(View v) {
 
                 String count = (String) PlayersNum.getText();
-                int cnt=Integer.parseInt(count);
-                if(cnt>4)
+                int minuscnt=Integer.parseInt(count);
+                if(minuscnt>4)
                 {
-                    cnt--;
-                    PlayersNum.setText(String.valueOf(cnt));
+                    minuscnt--;
+                    PlayersNum.setText(String.valueOf(minuscnt));
+                    Ocnt[0] =minuscnt;
                 }
 
 
@@ -96,7 +102,7 @@ public class number_of_players extends AppCompatActivity {
     @Override
     public void onSaveInstanceState(Bundle savedInstanceStance) {
         super.onSaveInstanceState(savedInstanceStance);
-        savedInstanceStance.putInt("number_players",cnt);
+        savedInstanceStance.putInt("number_players",Ocnt[0]);
 
 
 

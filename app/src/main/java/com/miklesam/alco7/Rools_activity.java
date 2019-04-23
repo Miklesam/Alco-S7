@@ -10,6 +10,7 @@ import android.widget.AdapterView;
 import android.widget.BaseAdapter;
 import android.widget.Button;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.ListView;
 import android.widget.TextView;
 
@@ -28,6 +29,8 @@ public class Rools_activity extends AppCompatActivity {
         final Button ToMenu = findViewById(R.id.rools_to_menu);
 
 
+
+
         final Intent to_menu = new Intent(this, MainActivity.class);
 
 
@@ -41,6 +44,9 @@ public class Rools_activity extends AppCompatActivity {
 
             }
         });
+
+
+
 
 
     }
