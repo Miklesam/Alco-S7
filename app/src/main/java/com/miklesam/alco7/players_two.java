@@ -27,56 +27,39 @@ import com.google.android.gms.ads.AdRequest;
 public class players_two extends AppCompatActivity {
 
     private InterstitialAd mInterstitialAd;
-    int[] IMAGES={R.drawable.ace_chervi,R.drawable.k_chervi,R.drawable.q_chervi,R.drawable.j_chervi,
-            R.drawable.ten_chervi,R.drawable.nine_chervi,R.drawable.eight_chervi,R.drawable.seven_chervi,
-            R.drawable.six_chervi
-    };
+    ArrayList cardlist= new ArrayList();
+    int num;
+    boolean[] had_have=new boolean[4];
+    ArrayList<ImageView> TenList = new ArrayList<ImageView>();
 
-
-
-    String NAMES[]={"Туз","Король","Дама","Валет","Десятка","Девятка","Восьмерка","Семерка","Шестерка"};
-    String Descriptions[]={"Выбери кто пьет!","Запрет","Поднять руку","Действие","Вопрос","Тема","Щит","Счет","Пьешь сам"};
-
-
-    @SuppressLint("ResourceType")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_players_two);
         setRequestedOrientation (ActivityInfo.SCREEN_ORIENTATION_LANDSCAPE);
 
-
-
         final ImageView Cards= (ImageView) findViewById(R.id.deck_of_cards);
         final ImageView Cardtaken=findViewById(R.id.card_taken);
-
         final Button Throwcard = findViewById(R.id.throwcard);
         final Button Backtomenu = findViewById(R.id.back_to_menu);
-
-
-
         final ImageView[] turn = new ImageView[4];
         final ImageView[] Player = new ImageView[4];
         final ImageView[] Ten = new ImageView[4];
-        final boolean[] had_have=new boolean[4];
+
 
 
         mInterstitialAd = new InterstitialAd(this);
         mInterstitialAd.setAdUnitId("ca-app-pub-3940256099942544/1033173712");
         mInterstitialAd.loadAd(new AdRequest.Builder().build());
 
-
-
         turn[0]=findViewById(R.id.turn2);
         turn[1]=findViewById(R.id.turn5);
         turn[2]=findViewById(R.id.turn8);
         turn[3]=findViewById(R.id.turn11);
-
         Player[0]=findViewById(R.id.player2);
         Player[1]=findViewById(R.id.player5);
         Player[2]=findViewById(R.id.player8);
         Player[3]=findViewById(R.id.player11);
-
         Ten[0]=findViewById(R.id.ten_2);
         Ten[1]=findViewById(R.id.ten_5);
         Ten[2]=findViewById(R.id.ten_8);
@@ -90,64 +73,92 @@ public class players_two extends AppCompatActivity {
 
 
         final TextView NumCards=(TextView) findViewById(R.id.NumCards);
-        NumCards.setText(String.valueOf(4));
+
         final Random random = new Random();
-        final int[] num = {random.nextInt(4)};
+
+
+
+
         final Intent tomenuintent = new Intent(this, MainActivity.class);
-        final ArrayList cardlist= new ArrayList();
+
 
         final boolean[] card_is_taken = new boolean[1];
-        cardlist.add(R.drawable.new_ace);
-        cardlist.add(R.drawable.ace_chervi);
-        cardlist.add(R.drawable.ace_kresti);
-        cardlist.add(R.drawable.ace_vini);
 
-        cardlist.add(R.drawable.k_bubi);
-        cardlist.add(R.drawable.k_chervi);
-        cardlist.add(R.drawable.k_kresti);
-        cardlist.add(R.drawable.k_vini);
+        if (savedInstanceState!=null)
+        {
+            cardlist=savedInstanceState.getIntegerArrayList("cardlist");
+            num=savedInstanceState.getInt("seq_num");
+            had_have=savedInstanceState.getBooleanArray("had_have");
+            for (int i=0;i<had_have.length;i++)
+            {
+                if(had_have[i]==true)
+                {
+                    TenList.get(i).setVisibility(View.VISIBLE);
+                }
 
-        cardlist.add(R.drawable.q_bubi);
-        cardlist.add(R.drawable.q_chervi);
-        cardlist.add(R.drawable.q_kresti);
-        cardlist.add(R.drawable.q_vini);
+            }
 
-        cardlist.add(R.drawable.j_bubi);
-        cardlist.add(R.drawable.j_chervi);
-        cardlist.add(R.drawable.j_kresti);
-        cardlist.add(R.drawable.j_vini);
+         }
+        else
+        {
+            num= random.nextInt(4);
+            cardlist.add(R.drawable.new_ace);
+            cardlist.add(R.drawable.ace_chervi);
+            cardlist.add(R.drawable.ace_kresti);
+            cardlist.add(R.drawable.ace_vini);
 
-        cardlist.add(R.drawable.ten_bubi);
-        cardlist.add(R.drawable.ten_chervi);
-        cardlist.add(R.drawable.ten_kresti);
-        cardlist.add(R.drawable.ten_vini);
+            cardlist.add(R.drawable.k_bubi);
+            cardlist.add(R.drawable.k_chervi);
+            cardlist.add(R.drawable.k_kresti);
+            cardlist.add(R.drawable.k_vini);
 
-        cardlist.add(R.drawable.nine_bubi);
-        cardlist.add(R.drawable.nine_chervi);
-        cardlist.add(R.drawable.nine_kresti);
-        cardlist.add(R.drawable.nine_vini);
+            cardlist.add(R.drawable.q_bubi);
+            cardlist.add(R.drawable.q_chervi);
+            cardlist.add(R.drawable.q_kresti);
+            cardlist.add(R.drawable.q_vini);
 
-        cardlist.add(R.drawable.eight_bubi);
-        cardlist.add(R.drawable.eight_chervi);
-        cardlist.add(R.drawable.eight_kresti);
-        cardlist.add(R.drawable.eight_vini);
+            cardlist.add(R.drawable.j_bubi);
+            cardlist.add(R.drawable.j_chervi);
+            cardlist.add(R.drawable.j_kresti);
+            cardlist.add(R.drawable.j_vini);
 
-        cardlist.add(R.drawable.seven_bubi);
-        cardlist.add(R.drawable.seven_chervi);
-        cardlist.add(R.drawable.seven_kresti);
-        cardlist.add(R.drawable.seven_vini);
+            cardlist.add(R.drawable.ten_bubi);
+            cardlist.add(R.drawable.ten_chervi);
+            cardlist.add(R.drawable.ten_kresti);
+            cardlist.add(R.drawable.ten_vini);
 
-        cardlist.add(R.drawable.six_bubi);
-        cardlist.add(R.drawable.six_chervi);
-        cardlist.add(R.drawable.six_kresti);
-        cardlist.add(R.drawable.six_vini);
+            cardlist.add(R.drawable.nine_bubi);
+            cardlist.add(R.drawable.nine_chervi);
+            cardlist.add(R.drawable.nine_kresti);
+            cardlist.add(R.drawable.nine_vini);
+
+            cardlist.add(R.drawable.eight_bubi);
+            cardlist.add(R.drawable.eight_chervi);
+            cardlist.add(R.drawable.eight_kresti);
+            cardlist.add(R.drawable.eight_vini);
+
+            cardlist.add(R.drawable.seven_bubi);
+            cardlist.add(R.drawable.seven_chervi);
+            cardlist.add(R.drawable.seven_kresti);
+            cardlist.add(R.drawable.seven_vini);
+
+            cardlist.add(R.drawable.six_bubi);
+            cardlist.add(R.drawable.six_chervi);
+            cardlist.add(R.drawable.six_kresti);
+            cardlist.add(R.drawable.six_vini);
+            Collections.shuffle(cardlist);
+        }
+
+
 
         Collections.shuffle(cardlist);
+
+        NumCards.setText(String.valueOf(cardlist.size()));
 
 
         final ArrayList<ImageView> PlayerList = new ArrayList<ImageView>();
         final ArrayList<ImageView> TurnList = new ArrayList<ImageView>();
-        final ArrayList<ImageView> TenList = new ArrayList<ImageView>();
+
 
         for(int i=0;i<Player.length;i++)
         {
@@ -162,7 +173,7 @@ public class players_two extends AppCompatActivity {
             PlayerList.get(i).setVisibility(View.VISIBLE);
         }
 
-        TurnList.get(num[0]).setVisibility(View.VISIBLE);
+        TurnList.get(num).setVisibility(View.VISIBLE);
 
         Cards.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -172,7 +183,7 @@ public class players_two extends AppCompatActivity {
                 Collections.shuffle(cardlist);
                 String count = (String) NumCards.getText();
                 int cnt=Integer.parseInt(count);
-                TurnList.get(num[0]).setVisibility(View.INVISIBLE);
+                TurnList.get(num).setVisibility(View.INVISIBLE);
 
                 Cards.setVisibility(View.INVISIBLE);
 
@@ -199,7 +210,7 @@ public class players_two extends AppCompatActivity {
                             had_have[i]=false;
                         }
 
-                        had_have[num[0]]=true;
+                        had_have[num]=true;
 
                     }
                     Throwcard.setVisibility(View.VISIBLE);
@@ -253,16 +264,16 @@ public class players_two extends AppCompatActivity {
                     PlayerList.get(i).setVisibility(View.VISIBLE);
                 }
 
-                if(num[0] <4-1)
+                if(num <4-1)
                 {
 
-                    num[0]++;
-                    TurnList.get(num[0]).setVisibility(View.VISIBLE);
+                    num++;
+                    TurnList.get(num).setVisibility(View.VISIBLE);
                 }
                 else
                 {
-                    num[0] =0;
-                    TurnList.get(num[0]).setVisibility(View.VISIBLE);
+                    num =0;
+                    TurnList.get(num).setVisibility(View.VISIBLE);
                 }
 
 
@@ -318,6 +329,18 @@ public class players_two extends AppCompatActivity {
 
 
 
+
+
+
+
+    }
+
+
+    public void onSaveInstanceState(Bundle savedInstanceStance) {
+        super.onSaveInstanceState(savedInstanceStance);
+        savedInstanceStance.putIntegerArrayList("cardlist", cardlist);
+        savedInstanceStance.putInt("seq_num",num);
+        savedInstanceStance.putBooleanArray("had_have", had_have);
 
 
 
