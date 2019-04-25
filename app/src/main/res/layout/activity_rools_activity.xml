@@ -38,6 +38,7 @@
         android:id="@+id/Ace"
             >
         <ImageView
+            android:id="@+id/minAce"
             android:layout_width="100sp"
             android:layout_height="100sp"
 
@@ -56,6 +57,7 @@
             android:orientation="horizontal"
             android:id="@+id/king">
             <ImageView
+                android:id="@+id/minKing"
                 android:layout_width="100sp"
                 android:layout_height="100sp"
 
@@ -77,6 +79,7 @@
             <ImageView
                 android:layout_width="100sp"
                 android:layout_height="100sp"
+                android:id="@+id/minQueen"
 
                 />
             <TextView
@@ -94,8 +97,10 @@
             android:orientation="horizontal"
             android:id="@+id/Jack" >
             <ImageView
+                android:id="@+id/minJack"
                 android:layout_width="100sp"
                 android:layout_height="100sp"
+
 
                 />
             <TextView
@@ -115,6 +120,7 @@
             <ImageView
                 android:layout_width="100sp"
                 android:layout_height="100sp"
+                android:id="@+id/minTen"
 
                 />
             <TextView
@@ -134,6 +140,7 @@
             <ImageView
                 android:layout_width="100sp"
                 android:layout_height="100sp"
+                android:id="@+id/minNine"
 
                 />
             <TextView
@@ -152,6 +159,7 @@
             <ImageView
                 android:layout_width="100sp"
                 android:layout_height="100sp"
+                android:id="@+id/minEight"
 
                 />
             <TextView
@@ -171,6 +179,7 @@
             <ImageView
                 android:layout_width="100sp"
                 android:layout_height="100sp"
+                android:id="@+id/minSeven"
 
                 />
             <TextView
@@ -190,6 +199,7 @@
         <ImageView
             android:layout_width="100sp"
             android:layout_height="100sp"
+            android:id="@+id/minSix"
 
             />
         <TextView
@@ -215,7 +225,6 @@
     <ImageView
         android:layout_width="wrap_content"
         android:layout_height="400sp"
-        app:srcCompat="@drawable/ace_chervi"
         android:layout_gravity="top"
         android:id="@+id/big_pic"
         />
@@ -223,7 +232,9 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:id="@+id/Main_Text"
         android:text="Text about card"
+        android:textSize="20sp"
         android:layout_gravity="center"/>
 
 
