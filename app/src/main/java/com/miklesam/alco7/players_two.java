@@ -23,6 +23,8 @@ import java.util.Random;
 import com.google.android.gms.ads.InterstitialAd;
 import com.google.android.gms.ads.AdRequest;
 
+import static com.miklesam.alco7.Cards.InitCards;
+
 
 public class players_two extends AppCompatActivity {
 
@@ -32,12 +34,18 @@ public class players_two extends AppCompatActivity {
     boolean[] had_have=new boolean[4];
     ArrayList<ImageView> TenList = new ArrayList<ImageView>();
 
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_players_two);
         setRequestedOrientation (ActivityInfo.SCREEN_ORIENTATION_LANDSCAPE);
 
+
+
+        final ImageView BigPic= findViewById(R.id.big_pic);
+        final TextView MainText = findViewById(R.id.Main_Text);
         final ImageView Cards= (ImageView) findViewById(R.id.deck_of_cards);
         final ImageView Cardtaken=findViewById(R.id.card_taken);
         final Button Throwcard = findViewById(R.id.throwcard);
@@ -45,6 +53,40 @@ public class players_two extends AppCompatActivity {
         final ImageView[] turn = new ImageView[4];
         final ImageView[] Player = new ImageView[4];
         final ImageView[] Ten = new ImageView[4];
+
+
+        //Init Info_rools
+
+        ImageView MinAce= findViewById(R.id.minAce);
+        ImageView MinKing= findViewById(R.id.minKing);
+        ImageView MinQueen= findViewById(R.id.minQueen);
+        ImageView MinJack= findViewById(R.id.minJack);
+        ImageView MinTen= findViewById(R.id.minTen);
+        ImageView MinNine= findViewById(R.id.minNine);
+        ImageView MinEight= findViewById(R.id.minEight);
+        ImageView MinSeven= findViewById(R.id.minSeven);
+        ImageView MinSix= findViewById(R.id.minSix);
+
+
+        MinAce.setImageResource(R.drawable.mini_ace_chervi);
+        MinKing.setImageResource(R.drawable.mini_k_chervi);
+        MinQueen.setImageResource(R.drawable.mini_q_chervi);
+        MinJack.setImageResource(R.drawable.mini_j_chervi);
+        MinTen.setImageResource(R.drawable.mini_ten_chervi);
+        MinNine.setImageResource(R.drawable.mini_nine_chervi);
+        MinEight.setImageResource(R.drawable.mini_eight_chervi);
+        MinSeven.setImageResource(R.drawable.mini_seven_chervi);
+        MinSix.setImageResource(R.drawable.mini_six_chervi);
+        BigPic.setImageResource(R.drawable.middle_ace_chervi);
+        MainText.setText("Выбери кто пьет");
+        //Init Info_rools end
+
+        final Button InfoButton = findViewById(R.id.Info_butt);
+
+        final LinearLayout InfoHint = findViewById(R.id.info_hint);
+
+        InfoHint.setVisibility(View.INVISIBLE);
+
 
 
 
@@ -68,17 +110,8 @@ public class players_two extends AppCompatActivity {
 
 
 
-
-
-
-
         final TextView NumCards=(TextView) findViewById(R.id.NumCards);
-
         final Random random = new Random();
-
-
-
-
         final Intent tomenuintent = new Intent(this, MainActivity.class);
 
 
@@ -102,63 +135,12 @@ public class players_two extends AppCompatActivity {
         else
         {
             num= random.nextInt(4);
-            cardlist.add(R.drawable.new_ace);
-            cardlist.add(R.drawable.ace_chervi);
-            cardlist.add(R.drawable.ace_kresti);
-            cardlist.add(R.drawable.ace_vini);
-
-            cardlist.add(R.drawable.k_bubi);
-            cardlist.add(R.drawable.k_chervi);
-            cardlist.add(R.drawable.k_kresti);
-            cardlist.add(R.drawable.k_vini);
-
-            cardlist.add(R.drawable.q_bubi);
-            cardlist.add(R.drawable.q_chervi);
-            cardlist.add(R.drawable.q_kresti);
-            cardlist.add(R.drawable.q_vini);
-
-            cardlist.add(R.drawable.j_bubi);
-            cardlist.add(R.drawable.j_chervi);
-            cardlist.add(R.drawable.j_kresti);
-            cardlist.add(R.drawable.j_vini);
-
-            cardlist.add(R.drawable.ten_bubi);
-            cardlist.add(R.drawable.ten_chervi);
-            cardlist.add(R.drawable.ten_kresti);
-            cardlist.add(R.drawable.ten_vini);
-
-            cardlist.add(R.drawable.nine_bubi);
-            cardlist.add(R.drawable.nine_chervi);
-            cardlist.add(R.drawable.nine_kresti);
-            cardlist.add(R.drawable.nine_vini);
-
-            cardlist.add(R.drawable.eight_bubi);
-            cardlist.add(R.drawable.eight_chervi);
-            cardlist.add(R.drawable.eight_kresti);
-            cardlist.add(R.drawable.eight_vini);
-
-            cardlist.add(R.drawable.seven_bubi);
-            cardlist.add(R.drawable.seven_chervi);
-            cardlist.add(R.drawable.seven_kresti);
-            cardlist.add(R.drawable.seven_vini);
-
-            cardlist.add(R.drawable.six_bubi);
-            cardlist.add(R.drawable.six_chervi);
-            cardlist.add(R.drawable.six_kresti);
-            cardlist.add(R.drawable.six_vini);
-            Collections.shuffle(cardlist);
+            cardlist.addAll(InitCards());
         }
-
-
-
         Collections.shuffle(cardlist);
-
         NumCards.setText(String.valueOf(cardlist.size()));
-
-
         final ArrayList<ImageView> PlayerList = new ArrayList<ImageView>();
         final ArrayList<ImageView> TurnList = new ArrayList<ImageView>();
-
 
         for(int i=0;i<Player.length;i++)
         {
@@ -234,8 +216,6 @@ public class players_two extends AppCompatActivity {
                 {
                     cnt--;
                     NumCards.setText(String.valueOf(cardlist.size()));
-
-
                 }
 
 
@@ -305,13 +285,8 @@ public class players_two extends AppCompatActivity {
                     }
                 }
 
-
-
-
             }
         });
-
-
 
         Backtomenu.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -322,16 +297,71 @@ public class players_two extends AppCompatActivity {
             }
         });
 
+        InfoButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                if(InfoButton.getText().equals("Info"))
+                {
+                    InfoHint.setVisibility(View.VISIBLE);
+                    InfoButton.setText("Back");
+                    Cards.setVisibility(View.INVISIBLE);
+
+                    Cardtaken.setVisibility(View.INVISIBLE);
+                    Throwcard.setVisibility(View.INVISIBLE);
+
+                    for(int i= 0;i<PlayerList.size();i++ )
+                    {
+                        PlayerList.get(i).setVisibility(View.INVISIBLE);
+                        TenList.get(i).setVisibility(View.INVISIBLE);
+                        TurnList.get(i).setVisibility(View.INVISIBLE);
+                    }
+                    NumCards.setVisibility(View.INVISIBLE);
+                }
+
+               else if(InfoButton.getText().equals("Back"))
+                {
+
+                    if (card_is_taken[0] ==true)
+
+                    {
+                        Cardtaken.setVisibility(View.VISIBLE);
+                        Throwcard.setVisibility(View.VISIBLE);
+                        InfoHint.setVisibility(View.INVISIBLE);
+                        InfoButton.setText("Info");
+                        NumCards.setVisibility(View.VISIBLE);
+                    }
+                    else
+                        {
+                            InfoHint.setVisibility(View.INVISIBLE);
+                            InfoButton.setText("Info");
+
+                            NumCards.setVisibility(View.VISIBLE);
+                            Cards.setVisibility(View.VISIBLE);
+                            TurnList.get(num).setVisibility(View.VISIBLE);
+
+                            for(int i= 0;i<PlayerList.size();i++ )
+                            {
+                                PlayerList.get(i).setVisibility(View.VISIBLE);
+                                //TenList.get(i).setVisibility(View.INVISIBLE);
+                                //TurnList.get(i).setVisibility(View.INVISIBLE);
+                                if(had_have[i]==true)
+                                {
+                                    TenList.get(i).setVisibility(View.VISIBLE);
+                                }
+
+                            }
+
+                    }
 
 
 
 
 
+                }
 
-
-
-
-
+            }
+        });
 
     }
 
@@ -341,14 +371,6 @@ public class players_two extends AppCompatActivity {
         savedInstanceStance.putIntegerArrayList("cardlist", cardlist);
         savedInstanceStance.putInt("seq_num",num);
         savedInstanceStance.putBooleanArray("had_have", had_have);
-
-
-
-
     }
-
-
-
-
 
 }

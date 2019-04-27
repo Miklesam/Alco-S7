@@ -83,7 +83,6 @@ public class number_of_players extends AppCompatActivity {
 
                 int extra=  Integer.parseInt((String) PlayersNum.getText());
                 intent.putExtra("num",extra);
-
                 startActivity(intent);
 
 
