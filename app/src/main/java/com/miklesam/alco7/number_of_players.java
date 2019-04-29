@@ -27,12 +27,18 @@ public class number_of_players extends AppCompatActivity {
 
 
 
-        final Intent intent = new Intent(this, players_two.class);
+        final Intent four = new Intent(this, players_two.class);
+        final Intent five = new Intent(this, five_p.class);
 
         if (savedInstanceState!=null)
         {
             Ocnt[0] =savedInstanceState.getInt("number_players");
-            PlayersNum.setText(String.valueOf(Ocnt[0]));
+            PlayersNum.setText("5");
+            //PlayersNum.setText(String.valueOf(Ocnt[0]));
+        }
+        else
+        {
+            PlayersNum.setText("4");
         }
 
         count = (String) PlayersNum.getText();
@@ -82,8 +88,16 @@ public class number_of_players extends AppCompatActivity {
 
 
                 int extra=  Integer.parseInt((String) PlayersNum.getText());
-                intent.putExtra("num",extra);
-                startActivity(intent);
+
+                if (extra==4)
+                {
+                    startActivity(four);
+                }
+                else if (extra==5)
+                {
+                    startActivity(five);
+                }
+
 
 
             }

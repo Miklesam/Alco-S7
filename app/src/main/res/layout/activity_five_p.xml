@@ -6,58 +6,15 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/alco_table2"
-    tools:context=".players_two">
+    tools:context=".five_p">
 
-<Button
-    android:layout_width="wrap_content"
-    android:layout_height="wrap_content"
-    android:layout_alignParentTop="true"
-    android:layout_alignParentRight="true"
-    android:id="@+id/Info_butt"
-    android:text="Info"
-    />
-
-
-    <LinearLayout
-        android:id="@+id/sure_eight"
-        android:layout_width="300sp"
-        android:layout_height="100sp"
-        android:orientation="vertical"
-        android:layout_centerHorizontal="true"
-        android:layout_centerVertical="true"
-        android:background="@drawable/fon"
-        android:visibility="invisible">
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:text="Are you sure"/>
-
-        <LinearLayout
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:layout_gravity="bottom">
-            <Button
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="yes"
-                android:layout_gravity="bottom"/>
-
-            <Button
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="no"
-                android:layout_gravity="bottom"/>
-
-
-
-        </LinearLayout>
-
-
-
-    </LinearLayout>
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentRight="true"
+        android:id="@+id/Info_butt"
+        android:text="Info"/>
 
 
     <LinearLayout
@@ -67,8 +24,7 @@
         android:orientation="horizontal"
         android:layout_alignParentRight="true"
         android:layout_alignParentTop="true"
-        android:background="@drawable/fon"
-        android:visibility="invisible">
+        android:background="@drawable/fon">
 
         <ScrollView
             android:layout_width="wrap_content"
@@ -299,27 +255,18 @@
 
 
 
-    <Button
-        android:id="@+id/startgame"
-        android:layout_width="200sp"
-        android:layout_height="100sp"
-        android:layout_centerVertical="true"
-        android:layout_alignParentRight="true"
-        android:visibility="invisible"
-        android:background="@drawable/nachalo"
 
-        />
 
 
     <Button
         android:id="@+id/throwcard"
-        android:layout_width="200sp"
+        android:layout_width="250sp"
         android:layout_height="100sp"
         android:layout_centerVertical="true"
         android:layout_alignParentRight="true"
         android:visibility="invisible"
         android:background="@drawable/sbros"
-       />
+        android:layout_toRightOf="@+id/deck_of_cards" />
 
     <Button
         android:id="@+id/back_to_menu"
@@ -471,7 +418,7 @@
             android:id="@+id/ten_11"
             android:visibility="invisible"
             />
- </LinearLayout>
+    </LinearLayout>
 
 
 
@@ -489,60 +436,60 @@
 
 
 
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_gravity="right">
+
+            <ImageView
+                android:layout_width="30sp"
+                android:layout_height="30sp"
+                android:rotation="-90"
+                app:srcCompat="@drawable/tinyten"
+                android:layout_gravity="right"
+                android:id="@+id/ten_5"
+                android:visibility="invisible"
+                />
+
             <LinearLayout
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:orientation="vertical"
-                android:layout_gravity="right">
+                android:orientation="horizontal"
+                >
 
                 <ImageView
-                    android:layout_width="30sp"
-                    android:layout_height="30sp"
+                    android:layout_width="100sp"
+                    android:layout_height="70sp"
                     android:rotation="-90"
-                    app:srcCompat="@drawable/tinyten"
-                    android:layout_gravity="right"
-                    android:id="@+id/ten_5"
+                    android:id="@+id/player5"
                     android:visibility="invisible"
-                    />
-
-                <LinearLayout
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:orientation="horizontal"
-                    >
-
-                    <ImageView
-                        android:layout_width="100sp"
-                        android:layout_height="70sp"
-                        android:rotation="-90"
-                        android:id="@+id/player5"
-                        android:visibility="invisible"
-                        app:srcCompat="@drawable/plaer_icon" />
-
-
-                    <ImageView
-                        android:layout_width="20sp"
-                        android:layout_height="70sp"
-                        android:rotation="180"
-                        android:id="@+id/turn5"
-                        android:visibility="invisible"
-                        app:srcCompat="@drawable/your_turnr" />
-
-                </LinearLayout>
+                    app:srcCompat="@drawable/plaer_icon" />
 
 
                 <ImageView
-                    android:layout_width="30sp"
-                    android:layout_height="30sp"
-                    android:rotation="-90"
-                    app:srcCompat="@drawable/neweight"
-                    android:layout_gravity="right"
-                    android:id="@+id/eight_5"
+                    android:layout_width="20sp"
+                    android:layout_height="70sp"
+                    android:rotation="180"
+                    android:id="@+id/turn5"
                     android:visibility="invisible"
-                    />
+                    app:srcCompat="@drawable/your_turnr" />
 
             </LinearLayout>
-  </LinearLayout>
+
+
+            <ImageView
+                android:layout_width="30sp"
+                android:layout_height="30sp"
+                android:rotation="-90"
+                app:srcCompat="@drawable/neweight"
+                android:layout_gravity="right"
+                android:id="@+id/eight_5"
+                android:visibility="invisible"
+                />
+
+        </LinearLayout>
+    </LinearLayout>
 
 
 
@@ -551,12 +498,11 @@
 
     <ImageView
         android:id="@+id/deck_of_cards"
-        android:layout_width="200sp"
-        android:layout_height="200sp"
+        android:layout_width="300sp"
+        android:layout_height="250sp"
         android:rotation="90"
         android:layout_centerHorizontal="true"
         android:layout_centerVertical="true"
-        android:visibility="invisible"
         app:srcCompat="@drawable/card_type_one_min" />
 
 
@@ -609,57 +555,110 @@
 
 
 
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom"
+            android:orientation="horizontal">
+
+            <ImageView
+                android:layout_width="30sp"
+                android:layout_height="30sp"
+                app:srcCompat="@drawable/neweight"
+                android:layout_gravity="bottom"
+                android:id="@+id/eight_8"
+                android:visibility="invisible"
+                />
             <LinearLayout
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_gravity="bottom"
-                android:orientation="horizontal">
+                android:orientation="vertical"
+                >
 
                 <ImageView
-                    android:layout_width="30sp"
-                    android:layout_height="30sp"
-                    app:srcCompat="@drawable/neweight"
-                    android:layout_gravity="bottom"
-                    android:id="@+id/eight_8"
+                    android:id="@+id/player8"
+                    android:layout_width="100sp"
+                    android:layout_height="70sp"
                     android:visibility="invisible"
-                    />
-                <LinearLayout
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:orientation="vertical"
-                    >
-
-                    <ImageView
-                        android:id="@+id/player8"
-                        android:layout_width="100sp"
-                        android:layout_height="70sp"
-                        android:visibility="invisible"
-                        app:srcCompat="@drawable/plaer_icon" />
-
-                    <ImageView
-                        android:layout_width="100sp"
-                        android:layout_height="20sp"
-                        app:srcCompat="@drawable/your_turn"
-                        android:visibility="invisible"
-                        android:id="@+id/turn8"/>
-
-                </LinearLayout>
-
-
+                    app:srcCompat="@drawable/plaer_icon" />
 
                 <ImageView
-                    android:layout_width="30sp"
-                    android:layout_height="30sp"
-                    app:srcCompat="@drawable/tinyten"
-                    android:layout_gravity="bottom"
-                    android:id="@+id/ten_8"
+                    android:layout_width="100sp"
+                    android:layout_height="20sp"
+                    app:srcCompat="@drawable/your_turn"
                     android:visibility="invisible"
-                    />
+                    android:id="@+id/turn8"/>
 
             </LinearLayout>
 
 
-</LinearLayout>
+
+            <ImageView
+                android:layout_width="30sp"
+                android:layout_height="30sp"
+                app:srcCompat="@drawable/tinyten"
+                android:layout_gravity="bottom"
+                android:id="@+id/ten_8"
+                android:visibility="invisible"
+                />
+
+        </LinearLayout>
+
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom"
+            android:orientation="horizontal">
+
+            <ImageView
+                android:layout_width="30sp"
+                android:layout_height="30sp"
+                app:srcCompat="@drawable/neweight"
+                android:layout_gravity="bottom"
+                android:id="@+id/eight_7"
+                android:visibility="invisible"
+                />
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                >
+
+                <ImageView
+                    android:id="@+id/player7"
+                    android:layout_width="100sp"
+                    android:layout_height="70sp"
+                    android:visibility="invisible"
+                    app:srcCompat="@drawable/plaer_icon" />
+
+                <ImageView
+                    android:layout_width="100sp"
+                    android:layout_height="20sp"
+                    app:srcCompat="@drawable/your_turn"
+                    android:visibility="invisible"
+                    android:id="@+id/turn7"/>
+
+            </LinearLayout>
+
+
+
+            <ImageView
+                android:layout_width="30sp"
+                android:layout_height="30sp"
+                app:srcCompat="@drawable/tinyten"
+                android:layout_gravity="bottom"
+                android:id="@+id/ten_7"
+                android:visibility="invisible"
+                />
+
+        </LinearLayout>
+
+
+
+
+
+    </LinearLayout>
 
 
 
