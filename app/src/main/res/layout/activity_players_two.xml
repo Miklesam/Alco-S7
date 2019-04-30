@@ -25,30 +25,34 @@
         android:orientation="vertical"
         android:layout_centerHorizontal="true"
         android:layout_centerVertical="true"
-        android:background="@drawable/fon"
+
         android:visibility="invisible">
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
-            android:text="Are you sure"/>
+            android:text="Сбросить Восьмерку?"
+            android:textSize="20sp"
+            android:textColor="#000000"/>
 
         <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:orientation="horizontal"
-            android:layout_gravity="bottom">
+            android:layout_gravity="center">
             <Button
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="yes"
+                android:id="@+id/sure_yes"
+                android:text="ДА"
                 android:layout_gravity="bottom"/>
 
             <Button
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="no"
+                android:text="НЕТ"
+                android:id="@+id/sure_no"
                 android:layout_gravity="bottom"/>
 
 
