@@ -24,27 +24,67 @@ public class five_p extends AppCompatActivity {
 
     private InterstitialAd mInterstitialAd;
     ArrayList cardlist= new ArrayList();
+    boolean not_first_init;
     int num;
     boolean[] had_have=new boolean[5];
+    boolean[] had_eight=new boolean[5];
+    boolean card_is_taken;
+    ImageView Cards;
     ArrayList<ImageView> TenList = new ArrayList<ImageView>();
+    ArrayList<ImageView> PlayerList = new ArrayList<ImageView>();
+    ArrayList<ImageView> TurnList = new ArrayList<ImageView>();
+    TextView NumCards;
+    ImageView[] Eight= new ImageView[5];
+    Button InfoButton;
+    ImageView Cardtaken;
+    Button Throwcard;
+    Button Backtomenu;
 
-    @Override
+    LinearLayout InfoHint;
+    ImageView BigPic;
+    TextView MainText;
+    LinearLayout SureEight;
+    Button sure_yes;
+    Button sure_no;
+
+
+    ImageView turn[] = new ImageView[5];
+    ImageView Player[] = new ImageView[5];
+    ImageView Ten[] = new ImageView[5];
+
+    int what_eight;
+    boolean sure_eight;
+    boolean info;
+
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_five_p);
-        setRequestedOrientation (ActivityInfo.SCREEN_ORIENTATION_LANDSCAPE);
 
+        final LinearLayout Ace = findViewById(R.id.Ace);
+        final LinearLayout King = findViewById(R.id.king);
+        final LinearLayout Queen = findViewById(R.id.Queen);
 
-        final ImageView BigPic= findViewById(R.id.big_pic);
-        final TextView MainText = findViewById(R.id.Main_Text);
-        final ImageView Cards= (ImageView) findViewById(R.id.deck_of_cards);
-        final ImageView Cardtaken=findViewById(R.id.card_taken);
-        final Button Throwcard = findViewById(R.id.throwcard);
-        final Button Backtomenu = findViewById(R.id.back_to_menu);
-        final ImageView[] turn = new ImageView[5];
-        final ImageView[] Player = new ImageView[5];
-        final ImageView[] Ten = new ImageView[5];
+        final LinearLayout Jack = findViewById(R.id.Jack);
+        final LinearLayout TenInfo = findViewById(R.id.Ten);
+        final LinearLayout Nine = findViewById(R.id.Nine);
 
+        final LinearLayout EightInfo = findViewById(R.id.Eight);
+        final LinearLayout Seven = findViewById(R.id.Seven);
+        final LinearLayout Six = findViewById(R.id.Six);
+        final TextView Help_Text =findViewById(R.id.Help_Text);
+        NumCards=findViewById(R.id.NumCards);
+        Cards= findViewById(R.id.deck_of_cards);
+        Cardtaken=findViewById(R.id.card_taken);
+        final Button StartGame=findViewById(R.id.startgame);
+        Backtomenu = findViewById(R.id.back_to_menu);
+        Throwcard = findViewById(R.id.throwcard);
+        InfoButton = findViewById(R.id.Info_butt);
+        InfoHint = findViewById(R.id.info_hint);
+        BigPic= findViewById(R.id.big_pic);
+        MainText = findViewById(R.id.Main_Text);
+        SureEight = findViewById(R.id.sure_eight);
+        sure_yes=findViewById(R.id.sure_yes);
+        sure_no=findViewById(R.id.sure_no);
         //Init Info_rools
 
         ImageView MinAce= findViewById(R.id.minAce);
@@ -69,25 +109,16 @@ public class five_p extends AppCompatActivity {
         MinSix.setImageResource(R.drawable.mini_six_chervi);
         BigPic.setImageResource(R.drawable.middle_ace_chervi);
         MainText.setText("Выбери кто пьет");
-        //Init Info_rools end
-
-        final Button InfoButton = findViewById(R.id.Info_butt);
-
-        final LinearLayout InfoHint = findViewById(R.id.info_hint);
-
-        InfoHint.setVisibility(View.INVISIBLE);
-
-
-
-
         mInterstitialAd = new InterstitialAd(this);
         mInterstitialAd.setAdUnitId("ca-app-pub-3940256099942544/1033173712");
         mInterstitialAd.loadAd(new AdRequest.Builder().build());
 
+        final Intent tomenuintent = new Intent(this, MainActivity.class);
         turn[0]=findViewById(R.id.turn2);
         turn[1]=findViewById(R.id.turn5);
         turn[2]=findViewById(R.id.turn7);
         turn[3]=findViewById(R.id.turn8);
+
         turn[4]=findViewById(R.id.turn11);
         Player[0]=findViewById(R.id.player2);
         Player[1]=findViewById(R.id.player5);
@@ -100,40 +131,11 @@ public class five_p extends AppCompatActivity {
         Ten[3]=findViewById(R.id.ten_8);
         Ten[4]=findViewById(R.id.ten_11);
 
-
-
-
-        final TextView NumCards=(TextView) findViewById(R.id.NumCards);
-        final Random random = new Random();
-        final Intent tomenuintent = new Intent(this, MainActivity.class);
-
-
-        final boolean[] card_is_taken = new boolean[1];
-
-        if (savedInstanceState!=null)
-        {
-            cardlist=savedInstanceState.getIntegerArrayList("cardlist");
-            num=savedInstanceState.getInt("seq_num");
-            had_have=savedInstanceState.getBooleanArray("had_have");
-            for (int i=0;i<had_have.length;i++)
-            {
-                if(had_have[i]==true)
-                {
-                    TenList.get(i).setVisibility(View.VISIBLE);
-                }
-
-            }
-
-        }
-        else
-        {
-            num= random.nextInt(4);
-            cardlist.addAll(InitCards());
-        }
-        Collections.shuffle(cardlist);
-        NumCards.setText(String.valueOf(cardlist.size()));
-        final ArrayList<ImageView> PlayerList = new ArrayList<ImageView>();
-        final ArrayList<ImageView> TurnList = new ArrayList<ImageView>();
+        Eight[0]=findViewById(R.id.eight_2);
+        Eight[1]=findViewById(R.id.eight_5);
+        Eight[2]=findViewById(R.id.eight_7);
+        Eight[3]=findViewById(R.id.eight_8);
+        Eight[4]=findViewById(R.id.eight_11);
 
         for(int i=0;i<Player.length;i++)
         {
@@ -141,32 +143,73 @@ public class five_p extends AppCompatActivity {
             TurnList.add(turn[i]);
             TenList.add(Ten[i]);
         }
+        //Init Info_rools end
+        if (savedInstanceState!=null)
+        {  not_first_init=savedInstanceState.getBoolean("not_first_init");
+            if  (not_first_init==false)
+            {
+                not_first_init =true;
+                StartGame.setVisibility(View.VISIBLE);
+                cardlist.addAll(InitCards());
+                NumCards.setText(String.valueOf(cardlist.size()));
+            }
+            else
+            {
+                not_first_init =true;
+                StartGame.setVisibility(View.INVISIBLE);
+                cardlist=savedInstanceState.getIntegerArrayList("cardlist");
+                NumCards.setText(String.valueOf(cardlist.size()));
+                card_is_taken=savedInstanceState.getBoolean("card_is_taken");
+                had_have=savedInstanceState.getBooleanArray("had_have");
+                had_eight=savedInstanceState.getBooleanArray("had_eight");
+                num=savedInstanceState.getInt("num");
+                sure_eight=savedInstanceState.getBoolean("sure_eight");
+                info=savedInstanceState.getBoolean("info");
 
 
-        for(int i= 0;i<PlayerList.size();i++ )
-        {
-            PlayerList.get(i).setVisibility(View.VISIBLE);
+                if (card_is_taken ==true)
+                {
+                    InitCardTaken();
+                }
+                else
+                {
+                    InitGameTable();
+                }
+
+            }
+
+
         }
+        else
+        {
 
-        TurnList.get(num).setVisibility(View.VISIBLE);
+            StartGame.setVisibility(View.VISIBLE);
+            cardlist.addAll(InitCards());
+            NumCards.setText(String.valueOf(cardlist.size()));
+        }
+        setRequestedOrientation (ActivityInfo.SCREEN_ORIENTATION_LANDSCAPE);
+
+
+
+        StartGame.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                StartGame.setVisibility(View.INVISIBLE);
+                InitGameTable();
+            }
+        });
+
 
         Cards.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                card_is_taken[0] =true;
-
+                card_is_taken =true;
                 Collections.shuffle(cardlist);
                 String count = (String) NumCards.getText();
                 int cnt=Integer.parseInt(count);
-                TurnList.get(num).setVisibility(View.INVISIBLE);
 
-                Cards.setVisibility(View.INVISIBLE);
-
-                for(int i= 0;i<PlayerList.size();i++ )
-                {
-                    PlayerList.get(i).setVisibility(View.INVISIBLE);
-                    TenList.get(i).setVisibility(View.INVISIBLE);
-                }
+                HideGameTable();
 
 
                 Random randomcard = new Random();
@@ -175,8 +218,6 @@ public class five_p extends AppCompatActivity {
                 {
                     whattacard=randomcard.nextInt(cardlist.size());
                     Cardtaken.setImageResource((Integer) cardlist.get(whattacard));
-
-                    Cardtaken.setVisibility(View.VISIBLE);
                     if ((cardlist.get(whattacard).equals(R.drawable.ten_vini))||(cardlist.get(whattacard).equals(R.drawable.ten_kresti))||
                             (cardlist.get(whattacard).equals(R.drawable.ten_chervi))||(cardlist.get(whattacard).equals(R.drawable.ten_bubi)))
                     {
@@ -184,12 +225,14 @@ public class five_p extends AppCompatActivity {
                         {
                             had_have[i]=false;
                         }
-
                         had_have[num]=true;
-
                     }
-                    Throwcard.setVisibility(View.VISIBLE);
-
+                    else if ((cardlist.get(whattacard).equals(R.drawable.eight_vini))||(cardlist.get(whattacard).equals(R.drawable.eight_kresti))||
+                            (cardlist.get(whattacard).equals(R.drawable.eight_chervi))||(cardlist.get(whattacard).equals(R.drawable.eight_bubi)))
+                    {
+                        had_eight[num]=true;
+                    }
+                    InitCardTaken();
                     cardlist.remove(whattacard);
 
                 }
@@ -198,8 +241,7 @@ public class five_p extends AppCompatActivity {
                     whattacard=0;
                     Cardtaken.setImageResource((Integer) cardlist.get(whattacard));
                     cardlist.remove(whattacard);
-                    Cardtaken.setVisibility(View.VISIBLE);
-                    Throwcard.setVisibility(View.VISIBLE);
+                    InitCardTaken();
                 }
 
 
@@ -217,57 +259,27 @@ public class five_p extends AppCompatActivity {
         });
 
 
-
         Throwcard.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                card_is_taken[0]=false;
-                for (int i=0;i<had_have.length;i++)
-                {
-                    if(had_have[i]==true)
-                    {
-                        TenList.get(i).setVisibility(View.VISIBLE);
-                    }
-
-                }
-
-                Cards.setVisibility(View.VISIBLE);
-                for(int i= 0;i<PlayerList.size();i++ )
-                {
-                    PlayerList.get(i).setVisibility(View.VISIBLE);
-                }
-
+                card_is_taken=false;
                 if(num <5-1)
                 {
-
                     num++;
-                    TurnList.get(num).setVisibility(View.VISIBLE);
                 }
                 else
                 {
                     num =0;
-                    TurnList.get(num).setVisibility(View.VISIBLE);
                 }
-
-
-                Cardtaken.setVisibility(View.INVISIBLE);
-                Throwcard.setVisibility(View.INVISIBLE);
-
-
+                InitGameTable();
+                HideCardTaken();
 
                 if (cardlist.size()==0)
                 {
                     NumCards.setText("Конец колоды");
-                    Cards.setVisibility(View.INVISIBLE);
                     Backtomenu.setVisibility(View.VISIBLE);
-                    for(int i= 0;i<PlayerList.size();i++ )
-                    {
-                        PlayerList.get(i).setVisibility(View.INVISIBLE);
-                    }
-                    for(int i= 0;i<TurnList.size();i++ )
-                    {
-                        TurnList.get(i).setVisibility(View.INVISIBLE);
-                    }
+                    HideGameTable();
+                    InfoButton.setVisibility(View.INVISIBLE);
 
                     if (mInterstitialAd.isLoaded()) {
                         mInterstitialAd.show();
@@ -281,6 +293,94 @@ public class five_p extends AppCompatActivity {
             }
         });
 
+        InfoButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                InfoHint.setVisibility(View.VISIBLE);
+                if(InfoButton.getText().equals("Info"))
+                {
+                    info=true;
+
+                    if (card_is_taken==true)
+                    {
+                        HideCardTaken();
+                    }
+                    else
+                    {
+                        HideGameTable();
+                    }
+
+                    InfoButton.setText("Back");
+                    NumCards.setVisibility(View.INVISIBLE);
+                    InfoButton.setVisibility(View.VISIBLE);
+
+                }
+
+                else if(InfoButton.getText().equals("Back"))
+                {
+                    InfoHint.setVisibility(View.INVISIBLE);
+                    info=false;
+                    if (card_is_taken ==true)
+                    {
+                        InitCardTaken();
+                        InfoButton.setText("Info");
+                    }
+                    else
+                    {
+                        InfoButton.setText("Info");
+                        InitGameTable();
+                    }
+
+
+
+
+
+                }
+
+            }
+        });
+
+        for (int i=0;i<5;i++)
+        {
+            final int finalI = i;
+            Eight[i].setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    what_eight= finalI;
+                    sure_eight=true;
+                    SureEight.setVisibility(View.VISIBLE);
+                    InfoButton.setVisibility(View.INVISIBLE);
+                    HideGameTable();
+
+                }
+            });
+        }
+
+        sure_yes.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                had_eight[what_eight]=false;
+                Eight[what_eight].setVisibility(View.INVISIBLE);
+                SureEight.setVisibility(View.INVISIBLE);
+                InfoButton.setVisibility(View.VISIBLE);
+                sure_eight=false;
+                InitGameTable();
+
+
+            }
+        });
+
+        sure_no.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                sure_eight=false;
+                SureEight.setVisibility(View.INVISIBLE);
+                InitGameTable();
+                InfoButton.setVisibility(View.VISIBLE);
+
+            }
+        });
+
         Backtomenu.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -290,82 +390,190 @@ public class five_p extends AppCompatActivity {
             }
         });
 
-        InfoButton.setOnClickListener(new View.OnClickListener() {
+
+
+        Ace.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
-                if(InfoButton.getText().equals("Info"))
-                {
-                    InfoHint.setVisibility(View.VISIBLE);
-                    InfoButton.setText("Back");
-                    Cards.setVisibility(View.INVISIBLE);
-
-                    Cardtaken.setVisibility(View.INVISIBLE);
-                    Throwcard.setVisibility(View.INVISIBLE);
-
-                    for(int i= 0;i<PlayerList.size();i++ )
-                    {
-                        PlayerList.get(i).setVisibility(View.INVISIBLE);
-                        TenList.get(i).setVisibility(View.INVISIBLE);
-                        TurnList.get(i).setVisibility(View.INVISIBLE);
-                    }
-                    NumCards.setVisibility(View.INVISIBLE);
-                }
-
-                else if(InfoButton.getText().equals("Back"))
-                {
-
-                    if (card_is_taken[0] ==true)
-
-                    {
-                        Cardtaken.setVisibility(View.VISIBLE);
-                        Throwcard.setVisibility(View.VISIBLE);
-                        InfoHint.setVisibility(View.INVISIBLE);
-                        InfoButton.setText("Info");
-                        NumCards.setVisibility(View.VISIBLE);
-                    }
-                    else
-                    {
-                        InfoHint.setVisibility(View.INVISIBLE);
-                        InfoButton.setText("Info");
-
-                        NumCards.setVisibility(View.VISIBLE);
-                        Cards.setVisibility(View.VISIBLE);
-                        TurnList.get(num).setVisibility(View.VISIBLE);
-
-                        for(int i= 0;i<PlayerList.size();i++ )
-                        {
-                            PlayerList.get(i).setVisibility(View.VISIBLE);
-                            //TenList.get(i).setVisibility(View.INVISIBLE);
-                            //TurnList.get(i).setVisibility(View.INVISIBLE);
-                            if(had_have[i]==true)
-                            {
-                                TenList.get(i).setVisibility(View.VISIBLE);
-                            }
-
-                        }
-
-                    }
-
-
-
-
-
-                }
+                BigPic.setImageResource(R.drawable.ace_chervi);
+                MainText.setText("Выбери кто пьет");
+                Help_Text.setText("");
 
             }
         });
 
+        King.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                BigPic.setImageResource(R.drawable.k_chervi);
+                MainText.setText("Запрет");
+                Help_Text.setText("Установите запрет, который нельзя нарушать за столом.\n" +
+                        "Например: Нельзя пить правой рукой.\n" +
+                        "Нарушитель пьет.");
+
+            }
+        });
+
+        Queen.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                BigPic.setImageResource(R.drawable.q_chervi);
+                MainText.setText("Рука");
+                Help_Text.setText("Нужно поднять руку вверх.\n" +
+                        "Последний поднявший пьет");
+
+            }
+        });
+
+        Jack.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                BigPic.setImageResource(R.drawable.j_chervi);
+                MainText.setText("Действие");
+                Help_Text.setText("Установите действие, которое необходимо совершить перед тем как выпить.\n" +
+                        "Тот, кто забудет выполнить действие, пьет ");
+
+            }
+        });
+
+        TenInfo.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                BigPic.setImageResource(R.drawable.ten_chervi);
+                MainText.setText("Вопрос");
+                Help_Text.setText("У вас появится индикатор 10.\n" +
+                        "На любой ваш вопрос нельзя отвечать.\n" +
+                        "Тот, кто ответит на ваш вопрос, пьет.\n" +
+                        "Когда выпадает другая десятка, предыдущая аннулируется");
+
+            }
+        });
+
+        Nine.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                BigPic.setImageResource(R.drawable.nine_chervi);
+                MainText.setText("Тема");
+                Help_Text.setText("Задайте тему.\n" +
+                        "Например: Марки машин \n" +
+                        "Все по очереди называют марки машин\n" +
+                        "Тот, кто повторится или не сможет назвать, пьет .");
+
+            }
+        });
+
+        EightInfo.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                BigPic.setImageResource(R.drawable.eight_chervi);
+                MainText.setText("Щит");
+                Help_Text.setText("У вас появится индикатор 8.\n" +
+                        "Вы можете использовать Восьмерку, чтобы не пить один раз.\n" +
+                        "Для этого нажмите на нее и сбросьте.");
+
+            }
+        });
+
+        Seven.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                BigPic.setImageResource(R.drawable.seven_chervi);
+                MainText.setText("Счет");
+                Help_Text.setText("С того кто вытянул 7 начинается счет.\n" +
+                        "Все по очереди считают, нельзя называть числа кратные 7 и числа где присутсвует 7.\n" +
+                        "Тот, кто ошибется, пьет .");
+
+
+            }
+        });
+
+        Six.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                BigPic.setImageResource(R.drawable.six_chervi);
+                MainText.setText("Пьешь сам");
+                Help_Text.setText("Выпей сам");
+            }
+        });
+
+
+
+
+
+
+
+    }
+
+    private void InitGameTable() {
+        NumCards.setVisibility(View.VISIBLE);
+        Cards.setVisibility(View.VISIBLE);
+        TurnList.get(num).setVisibility(View.VISIBLE);
+        InfoButton.setText("Info");
+        InfoButton.setVisibility(View.VISIBLE);
+        for(int i= 0;i<PlayerList.size();i++ )
+        {
+            PlayerList.get(i).setVisibility(View.VISIBLE);
+            if(had_have[i]==true)
+            {
+                TenList.get(i).setVisibility(View.VISIBLE);
+            }
+            if (had_eight[i]==true)
+            {
+                Eight[i].setVisibility(View.VISIBLE);
+            }
+
+        }
+
+    }
+
+    private void HideGameTable(){
+        NumCards.setVisibility(View.VISIBLE);
+        Cards.setVisibility(View.INVISIBLE);
+        TurnList.get(num).setVisibility(View.INVISIBLE);
+
+        for(int i= 0;i<PlayerList.size();i++ )
+        {
+            PlayerList.get(i).setVisibility(View.INVISIBLE);
+            if(had_have[i]==true)
+            {
+                TenList.get(i).setVisibility(View.INVISIBLE);
+            }
+            if (had_eight[i]==true)
+            {
+                Eight[i].setVisibility(View.INVISIBLE);
+            }
+
+        }
+    }
+
+    private void InitCardTaken(){
+        Cardtaken.setVisibility(View.VISIBLE);
+        Throwcard.setVisibility(View.VISIBLE);
+        InfoButton.setText("Info");
+        InfoButton.setVisibility(View.VISIBLE);
+        NumCards.setVisibility(View.VISIBLE);
+    }
+    private void HideCardTaken(){
+        Cardtaken.setVisibility(View.INVISIBLE);
+        Throwcard.setVisibility(View.INVISIBLE);
+        NumCards.setVisibility(View.VISIBLE);
     }
 
 
+
+
+
+    @Override
     public void onSaveInstanceState(Bundle savedInstanceStance) {
         super.onSaveInstanceState(savedInstanceStance);
-        savedInstanceStance.putIntegerArrayList("cardlist", cardlist);
-        savedInstanceStance.putInt("seq_num",num);
-        savedInstanceStance.putBooleanArray("had_have", had_have);
-    }
+        savedInstanceStance.putBoolean("not_first_init",not_first_init);
+        savedInstanceStance.putIntegerArrayList("cardlist",cardlist);
+        savedInstanceStance.putBoolean("card_is_taken",card_is_taken);
+        savedInstanceStance.putBooleanArray("had_have",had_have);
+        savedInstanceStance.putBooleanArray("had_eight",had_eight);
+        savedInstanceStance.putInt("num",num);
 
+    }
 
 
 }

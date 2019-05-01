@@ -14,7 +14,54 @@
         android:layout_alignParentTop="true"
         android:layout_alignParentRight="true"
         android:id="@+id/Info_butt"
-        android:text="Info"/>
+        android:text="Info"
+        />
+
+
+    <LinearLayout
+        android:id="@+id/sure_eight"
+        android:layout_width="300sp"
+        android:layout_height="100sp"
+        android:orientation="vertical"
+        android:layout_centerHorizontal="true"
+        android:layout_centerVertical="true"
+
+        android:visibility="invisible">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:text="Сбросить Восьмерку?"
+            android:textSize="20sp"
+            android:textColor="#000000"/>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_gravity="center">
+            <Button
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/sure_yes"
+                android:text="ДА"
+                android:layout_gravity="bottom"/>
+
+            <Button
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="НЕТ"
+                android:id="@+id/sure_no"
+                android:layout_gravity="bottom"/>
+
+
+
+        </LinearLayout>
+
+
+
+    </LinearLayout>
 
 
     <LinearLayout
@@ -24,7 +71,8 @@
         android:orientation="horizontal"
         android:layout_alignParentRight="true"
         android:layout_alignParentTop="true"
-        android:background="@drawable/fon">
+        android:background="@drawable/fon"
+        android:visibility="invisible">
 
         <ScrollView
             android:layout_width="wrap_content"
@@ -247,6 +295,17 @@
                 android:textSize="20sp"
                 android:layout_gravity="center"/>
 
+            <ScrollView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content">
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/Help_Text"
+                    android:textSize="18sp"
+                    android:layout_gravity="center"/>
+            </ScrollView>
+
 
         </LinearLayout>
 
@@ -255,18 +314,27 @@
 
 
 
+    <Button
+        android:id="@+id/startgame"
+        android:layout_width="200sp"
+        android:layout_height="100sp"
+        android:layout_centerVertical="true"
+        android:layout_alignParentRight="true"
+        android:visibility="invisible"
+        android:background="@drawable/nachalo"
 
+        />
 
 
     <Button
         android:id="@+id/throwcard"
-        android:layout_width="250sp"
+        android:layout_width="200sp"
         android:layout_height="100sp"
         android:layout_centerVertical="true"
         android:layout_alignParentRight="true"
         android:visibility="invisible"
         android:background="@drawable/sbros"
-        android:layout_toRightOf="@+id/deck_of_cards" />
+        />
 
     <Button
         android:id="@+id/back_to_menu"
@@ -498,11 +566,12 @@
 
     <ImageView
         android:id="@+id/deck_of_cards"
-        android:layout_width="300sp"
-        android:layout_height="250sp"
+        android:layout_width="200sp"
+        android:layout_height="200sp"
         android:rotation="90"
         android:layout_centerHorizontal="true"
         android:layout_centerVertical="true"
+        android:visibility="invisible"
         app:srcCompat="@drawable/card_type_one_min" />
 
 
@@ -604,7 +673,6 @@
 
         </LinearLayout>
 
-
         <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -653,8 +721,6 @@
                 />
 
         </LinearLayout>
-
-
 
 
 

@@ -26,8 +26,7 @@ public class Rools_activity extends AppCompatActivity {
 
 
 
-        final Button ToMenu = findViewById(R.id.rools_to_menu);
-        final Intent to_menu = new Intent(this, MainActivity.class);
+       final Intent to_menu = new Intent(this, MainActivity.class);
 
         ImageView MinAce= findViewById(R.id.minAce);
         ImageView MinKing= findViewById(R.id.minKing);
@@ -41,6 +40,8 @@ public class Rools_activity extends AppCompatActivity {
 
         final ImageView BigPic= findViewById(R.id.big_pic);
         final TextView MainText = findViewById(R.id.Main_Text);
+        final  TextView Help_Text =findViewById(R.id.Help_Text);
+
         MinAce.setImageResource(R.drawable.mini_ace_chervi);
         MinKing.setImageResource(R.drawable.mini_k_chervi);
         MinQueen.setImageResource(R.drawable.mini_q_chervi);
@@ -69,20 +70,12 @@ public class Rools_activity extends AppCompatActivity {
 
 
 
-
-        ToMenu.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                startActivity(to_menu);
-
-            }
-        });
-
         Ace.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 BigPic.setImageResource(R.drawable.ace_chervi);
                 MainText.setText("Выбери кто пьет");
+                Help_Text.setText("");
 
             }
         });
@@ -92,6 +85,9 @@ public class Rools_activity extends AppCompatActivity {
             public void onClick(View v) {
                 BigPic.setImageResource(R.drawable.k_chervi);
                 MainText.setText("Запрет");
+                Help_Text.setText("Установите запрет, который нельзя нарушать за столом.\n" +
+                        "Например: Нельзя пить правой рукой.\n" +
+                        "Нарушитель пьет.");
 
             }
         });
@@ -100,7 +96,9 @@ public class Rools_activity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 BigPic.setImageResource(R.drawable.q_chervi);
-                MainText.setText("Поднять руку");
+                MainText.setText("Рука");
+                Help_Text.setText("Нужно поднять руку вверх.\n" +
+                        "Последний поднявший пьет");
 
             }
         });
@@ -110,6 +108,8 @@ public class Rools_activity extends AppCompatActivity {
             public void onClick(View v) {
                 BigPic.setImageResource(R.drawable.j_chervi);
                 MainText.setText("Действие");
+                Help_Text.setText("Установите действие, которое необходимо совершить перед тем как выпить.\n" +
+                        "Тот, кто забудет выполнить действие, пьет ");
 
             }
         });
@@ -119,6 +119,10 @@ public class Rools_activity extends AppCompatActivity {
             public void onClick(View v) {
                 BigPic.setImageResource(R.drawable.ten_chervi);
                 MainText.setText("Вопрос");
+                Help_Text.setText("У вас появится индикатор 10.\n" +
+                        "На любой ваш вопрос нельзя отвечать.\n" +
+                        "Тот, кто ответит на ваш вопрос, пьет.\n" +
+                        "Когда выпадает другая десятка, предыдущая аннулируется");
 
             }
         });
@@ -128,6 +132,10 @@ public class Rools_activity extends AppCompatActivity {
             public void onClick(View v) {
                 BigPic.setImageResource(R.drawable.nine_chervi);
                 MainText.setText("Тема");
+                Help_Text.setText("Задайте тему.\n" +
+                        "Например: Марки машин \n" +
+                        "Все по очереди называют марки машин\n" +
+                        "Тот, кто повторится или не сможет назвать, пьет .");
 
             }
         });
@@ -137,6 +145,10 @@ public class Rools_activity extends AppCompatActivity {
             public void onClick(View v) {
                 BigPic.setImageResource(R.drawable.eight_chervi);
                 MainText.setText("Щит");
+                Help_Text.setText("У вас появится индикатор 8.\n" +
+                        "Вы можете использовать Восьмерку, чтобы не пить один раз.\n" +
+                        "Для этого нажмите на нее и сбросьте.");
+
             }
         });
 
@@ -145,6 +157,11 @@ public class Rools_activity extends AppCompatActivity {
             public void onClick(View v) {
                 BigPic.setImageResource(R.drawable.seven_chervi);
                 MainText.setText("Счет");
+                Help_Text.setText("С того кто вытянул 7 начинается счет.\n" +
+                        "Все по очереди считают, нельзя называть числа кратные 7 и числа где присутсвует 7.\n" +
+                        "Тот, кто ошибется, пьет .");
+
+
             }
         });
 
@@ -153,6 +170,7 @@ public class Rools_activity extends AppCompatActivity {
             public void onClick(View v) {
                 BigPic.setImageResource(R.drawable.six_chervi);
                 MainText.setText("Пьешь сам");
+                Help_Text.setText("Выпей сам");
             }
         });
 

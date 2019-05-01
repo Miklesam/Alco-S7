@@ -62,6 +62,9 @@ public class players_two extends AppCompatActivity {
     boolean sure_eight;
     boolean info;
 
+
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -74,6 +77,18 @@ public class players_two extends AppCompatActivity {
 
 
         setContentView(R.layout.activity_players_two);
+        final LinearLayout Ace = findViewById(R.id.Ace);
+        final LinearLayout King = findViewById(R.id.king);
+        final LinearLayout Queen = findViewById(R.id.Queen);
+
+        final LinearLayout Jack = findViewById(R.id.Jack);
+        final LinearLayout TenInfo = findViewById(R.id.Ten);
+        final LinearLayout Nine = findViewById(R.id.Nine);
+
+        final LinearLayout EightInfo = findViewById(R.id.Eight);
+        final LinearLayout Seven = findViewById(R.id.Seven);
+        final LinearLayout Six = findViewById(R.id.Six);
+        final TextView Help_Text =findViewById(R.id.Help_Text);
         NumCards=findViewById(R.id.NumCards);
         Cards= findViewById(R.id.deck_of_cards);
         Cardtaken=findViewById(R.id.card_taken);
@@ -388,6 +403,115 @@ public class players_two extends AppCompatActivity {
 
 
 
+        Ace.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                BigPic.setImageResource(R.drawable.ace_chervi);
+                MainText.setText("Выбери кто пьет");
+                Help_Text.setText("");
+
+            }
+        });
+
+        King.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                BigPic.setImageResource(R.drawable.k_chervi);
+                MainText.setText("Запрет");
+                Help_Text.setText("Установите запрет, который нельзя нарушать за столом.\n" +
+                        "Например: Нельзя пить правой рукой.\n" +
+                        "Нарушитель пьет.");
+
+            }
+        });
+
+        Queen.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                BigPic.setImageResource(R.drawable.q_chervi);
+                MainText.setText("Рука");
+                Help_Text.setText("Нужно поднять руку вверх.\n" +
+                        "Последний поднявший пьет");
+
+            }
+        });
+
+        Jack.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                BigPic.setImageResource(R.drawable.j_chervi);
+                MainText.setText("Действие");
+                Help_Text.setText("Установите действие, которое необходимо совершить перед тем как выпить.\n" +
+                        "Тот, кто забудет выполнить действие, пьет ");
+
+            }
+        });
+
+        TenInfo.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                BigPic.setImageResource(R.drawable.ten_chervi);
+                MainText.setText("Вопрос");
+                Help_Text.setText("У вас появится индикатор 10.\n" +
+                        "На любой ваш вопрос нельзя отвечать.\n" +
+                        "Тот, кто ответит на ваш вопрос, пьет.\n" +
+                        "Когда выпадает другая десятка, предыдущая аннулируется");
+
+            }
+        });
+
+        Nine.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                BigPic.setImageResource(R.drawable.nine_chervi);
+                MainText.setText("Тема");
+                Help_Text.setText("Задайте тему.\n" +
+                        "Например: Марки машин \n" +
+                        "Все по очереди называют марки машин\n" +
+                        "Тот, кто повторится или не сможет назвать, пьет .");
+
+            }
+        });
+
+        EightInfo.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                BigPic.setImageResource(R.drawable.eight_chervi);
+                MainText.setText("Щит");
+                Help_Text.setText("У вас появится индикатор 8.\n" +
+                        "Вы можете использовать Восьмерку, чтобы не пить один раз.\n" +
+                        "Для этого нажмите на нее и сбросьте.");
+
+            }
+        });
+
+        Seven.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                BigPic.setImageResource(R.drawable.seven_chervi);
+                MainText.setText("Счет");
+                Help_Text.setText("С того кто вытянул 7 начинается счет.\n" +
+                        "Все по очереди считают, нельзя называть числа кратные 7 и числа где присутсвует 7.\n" +
+                        "Тот, кто ошибется, пьет .");
+
+
+            }
+        });
+
+        Six.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                BigPic.setImageResource(R.drawable.six_chervi);
+                MainText.setText("Пьешь сам");
+                Help_Text.setText("Выпей сам");
+            }
+        });
+
+
+
+
+
+
 
     }
 
@@ -446,6 +570,10 @@ public class players_two extends AppCompatActivity {
         NumCards.setVisibility(View.VISIBLE);
     }
 
+
+
+
+
     @Override
     public void onSaveInstanceState(Bundle savedInstanceStance) {
         super.onSaveInstanceState(savedInstanceStance);
@@ -457,6 +585,9 @@ public class players_two extends AppCompatActivity {
         savedInstanceStance.putInt("num",num);
 
     }
+
+
+
 
 
 

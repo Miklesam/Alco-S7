@@ -11,7 +11,7 @@ import android.widget.TextView;
 public class number_of_players extends AppCompatActivity {
     int cnt;
     String count;
-    final int[] Ocnt = new int[1];
+    int PlayerNum;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -32,9 +32,8 @@ public class number_of_players extends AppCompatActivity {
 
         if (savedInstanceState!=null)
         {
-            Ocnt[0] =savedInstanceState.getInt("number_players");
-            PlayersNum.setText("5");
-            //PlayersNum.setText(String.valueOf(Ocnt[0]));
+            PlayerNum =savedInstanceState.getInt("number_players");
+            PlayersNum.setText(String.valueOf(PlayerNum));
         }
         else
         {
@@ -54,7 +53,7 @@ public class number_of_players extends AppCompatActivity {
                 {
                     pluscnt++;
                     PlayersNum.setText(String.valueOf(pluscnt));
-                    Ocnt[0] =pluscnt;
+                    PlayerNum =pluscnt;
                 }
 
 
@@ -74,7 +73,7 @@ public class number_of_players extends AppCompatActivity {
                 {
                     minuscnt--;
                     PlayersNum.setText(String.valueOf(minuscnt));
-                    Ocnt[0] =minuscnt;
+                    PlayerNum =minuscnt;
                 }
 
 
@@ -115,7 +114,7 @@ public class number_of_players extends AppCompatActivity {
     @Override
     public void onSaveInstanceState(Bundle savedInstanceStance) {
         super.onSaveInstanceState(savedInstanceStance);
-        savedInstanceStance.putInt("number_players",Ocnt[0]);
+        savedInstanceStance.putInt("number_players",PlayerNum);
 
 
 
