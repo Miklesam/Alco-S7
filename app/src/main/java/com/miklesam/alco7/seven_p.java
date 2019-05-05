@@ -20,21 +20,21 @@ import java.util.Random;
 
 import static com.miklesam.alco7.Cards.InitCards;
 
-public class five_p extends AppCompatActivity {
+public class seven_p extends AppCompatActivity {
 
     private InterstitialAd mInterstitialAd;
     ArrayList cardlist= new ArrayList();
     boolean not_first_init;
     int num;
-    boolean[] had_have=new boolean[5];
-    boolean[] had_eight=new boolean[5];
+    boolean[] had_have=new boolean[7];
+    boolean[] had_eight=new boolean[7];
     boolean card_is_taken;
     ImageView Cards;
     ArrayList<ImageView> TenList = new ArrayList<ImageView>();
     ArrayList<ImageView> PlayerList = new ArrayList<ImageView>();
     ArrayList<ImageView> TurnList = new ArrayList<ImageView>();
     TextView NumCards;
-    ImageView[] Eight= new ImageView[5];
+    ImageView[] Eight= new ImageView[7];
     Button InfoButton;
     ImageView Cardtaken;
     Button Throwcard;
@@ -48,17 +48,22 @@ public class five_p extends AppCompatActivity {
     Button sure_no;
 
 
-    ImageView turn[] = new ImageView[5];
-    ImageView Player[] = new ImageView[5];
-    ImageView Ten[] = new ImageView[5];
+    ImageView turn[] = new ImageView[7];
+    ImageView Player[] = new ImageView[7];
+    ImageView Ten[] = new ImageView[7];
 
     int what_eight;
     boolean sure_eight;
     boolean info;
 
+    @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_five_p);
+        setContentView(R.layout.activity_seven_p);
+
+
+
+
         final LinearLayout Ace = findViewById(R.id.Ace);
         final LinearLayout King = findViewById(R.id.king);
         final LinearLayout Queen = findViewById(R.id.Queen);
@@ -107,28 +112,36 @@ public class five_p extends AppCompatActivity {
 
         final Intent tomenuintent = new Intent(this, MainActivity.class);
         turn[0]=findViewById(R.id.turn2);
-        turn[1]=findViewById(R.id.turn5);
-        turn[2]=findViewById(R.id.turn7);
-        turn[3]=findViewById(R.id.turn8);
-        turn[4]=findViewById(R.id.turn11);
+        turn[1]=findViewById(R.id.turn3);
+        turn[2]=findViewById(R.id.turn4);
+        turn[3]=findViewById(R.id.turn5);
+        turn[4]=findViewById(R.id.turn7);
+        turn[5]=findViewById(R.id.turn8);
+        turn[6]=findViewById(R.id.turn11);
 
         Player[0]=findViewById(R.id.player2);
-        Player[1]=findViewById(R.id.player5);
-        Player[2]=findViewById(R.id.player7);
-        Player[3]=findViewById(R.id.player8);
-        Player[4]=findViewById(R.id.player11);
+        Player[1]=findViewById(R.id.player3);
+        Player[2]=findViewById(R.id.player4);
+        Player[3]=findViewById(R.id.player5);
+        Player[4]=findViewById(R.id.player7);
+        Player[5]=findViewById(R.id.player8);
+        Player[6]=findViewById(R.id.player11);
 
         Ten[0]=findViewById(R.id.ten_2);
-        Ten[1]=findViewById(R.id.ten_5);
-        Ten[2]=findViewById(R.id.ten_7);
-        Ten[3]=findViewById(R.id.ten_8);
-        Ten[4]=findViewById(R.id.ten_11);
+        Ten[1]=findViewById(R.id.ten_3);
+        Ten[2]=findViewById(R.id.ten_4);
+        Ten[3]=findViewById(R.id.ten_5);
+        Ten[4]=findViewById(R.id.ten_7);
+        Ten[5]=findViewById(R.id.ten_8);
+        Ten[6]=findViewById(R.id.ten_11);
 
         Eight[0]=findViewById(R.id.eight_2);
-        Eight[1]=findViewById(R.id.eight_5);
-        Eight[2]=findViewById(R.id.eight_7);
-        Eight[3]=findViewById(R.id.eight_8);
-        Eight[4]=findViewById(R.id.eight_11);
+        Eight[1]=findViewById(R.id.eight_3);
+        Eight[2]=findViewById(R.id.eight_4);
+        Eight[3]=findViewById(R.id.eight_5);
+        Eight[4]=findViewById(R.id.eight_7);
+        Eight[5]=findViewById(R.id.eight_8);
+        Eight[6]=findViewById(R.id.eight_11);
 
         for(int i=0;i<Player.length;i++)
         {
@@ -363,7 +376,7 @@ public class five_p extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 card_is_taken=false;
-                if(num <5-1)
+                if(num <PlayerList.size()-1)
                 {
                     num++;
                 }
@@ -499,7 +512,7 @@ public class five_p extends AppCompatActivity {
             }
         });
 
-        for (int i=0;i<5;i++)
+        for (int i=0;i<PlayerList.size();i++)
         {
             final int finalI = i;
             Eight[i].setOnClickListener(new View.OnClickListener() {
@@ -629,7 +642,4 @@ public class five_p extends AppCompatActivity {
         savedInstanceStance.putInt("num",num);
 
     }
-
-
-
 }

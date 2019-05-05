@@ -52,7 +52,7 @@ public class Rools_activity extends AppCompatActivity {
         MinSeven.setImageResource(R.drawable.small_seven);
         MinSix.setImageResource(R.drawable.small_six);
         BigPic.setImageResource(R.drawable.mid_ace);
-        MainText.setText("Выбери кто пьет");
+        MainText.setText("Выбери кто пьет.");
 
         final LinearLayout Ace = findViewById(R.id.Ace);
         final LinearLayout King = findViewById(R.id.king);
@@ -74,7 +74,7 @@ public class Rools_activity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 BigPic.setImageResource(R.drawable.ace_chervi);
-                MainText.setText("Выбери кто пьет");
+                MainText.setText("Выбери кто пьет.");
                 Help_Text.setText("");
 
             }
@@ -98,7 +98,7 @@ public class Rools_activity extends AppCompatActivity {
                 BigPic.setImageResource(R.drawable.q_chervi);
                 MainText.setText("Рука");
                 Help_Text.setText("Нужно поднять руку вверх.\n" +
-                        "Последний поднявший пьет");
+                        "Последний поднявший пьет.");
 
             }
         });
@@ -109,7 +109,7 @@ public class Rools_activity extends AppCompatActivity {
                 BigPic.setImageResource(R.drawable.j_chervi);
                 MainText.setText("Действие");
                 Help_Text.setText("Установите действие, которое необходимо совершить перед тем как выпить.\n" +
-                        "Тот, кто забудет выполнить действие, пьет ");
+                        "Тот, кто забудет выполнить действие, пьет.");
 
             }
         });
@@ -122,7 +122,7 @@ public class Rools_activity extends AppCompatActivity {
                 Help_Text.setText("У вас появится индикатор 10.\n" +
                         "На любой ваш вопрос нельзя отвечать.\n" +
                         "Тот, кто ответит на ваш вопрос, пьет.\n" +
-                        "Когда выпадает другая десятка, предыдущая аннулируется");
+                        "Когда выпадает другая десятка, предыдущая аннулируется.");
 
             }
         });
@@ -133,9 +133,9 @@ public class Rools_activity extends AppCompatActivity {
                 BigPic.setImageResource(R.drawable.nine_chervi);
                 MainText.setText("Тема");
                 Help_Text.setText("Задайте тему.\n" +
-                        "Например: Марки машин \n" +
-                        "Все по очереди называют марки машин\n" +
-                        "Тот, кто повторится или не сможет назвать, пьет .");
+                        "Например: Марки машин. \n" +
+                        "Все по очереди называют марки машин.\n" +
+                        "Тот, кто повторится или не сможет назвать, пьет.");
 
             }
         });
@@ -159,7 +159,7 @@ public class Rools_activity extends AppCompatActivity {
                 MainText.setText("Счет");
                 Help_Text.setText("С того кто вытянул 7 начинается счет.\n" +
                         "Все по очереди считают, нельзя называть числа кратные 7 и числа где присутсвует 7.\n" +
-                        "Тот, кто ошибется, пьет .");
+                        "Тот, кто ошибется, пьет.");
 
 
             }
@@ -169,8 +169,8 @@ public class Rools_activity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 BigPic.setImageResource(R.drawable.six_chervi);
-                MainText.setText("Пьешь сам");
-                Help_Text.setText("Выпей сам");
+                MainText.setText("Пьешь сам.");
+                Help_Text.setText("Выпей сам.");
             }
         });
 

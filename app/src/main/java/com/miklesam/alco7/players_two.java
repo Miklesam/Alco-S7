@@ -203,7 +203,10 @@ public class players_two extends AppCompatActivity {
             public void onClick(View v) {
 
                 StartGame.setVisibility(View.INVISIBLE);
+                Random initradn = new Random();
+                num=initradn.nextInt(PlayerList.size());
                 InitGameTable();
+
             }
         });
 
@@ -215,12 +218,12 @@ public class players_two extends AppCompatActivity {
                 Collections.shuffle(cardlist);
                 String count = (String) NumCards.getText();
                 int cnt=Integer.parseInt(count);
-
                 HideGameTable();
-
 
                 Random randomcard = new Random();
                 int whattacard=0;
+
+
                 if (cardlist.size()>1)
                 {
                     whattacard=randomcard.nextInt(cardlist.size());
@@ -297,8 +300,63 @@ public class players_two extends AppCompatActivity {
                 {
                     whattacard=0;
                     Cardtaken.setImageResource((Integer) cardlist.get(whattacard));
+
+
+                    if ((cardlist.get(whattacard).equals(R.drawable.ten_vini))||(cardlist.get(whattacard).equals(R.drawable.ten_kresti))||
+                            (cardlist.get(whattacard).equals(R.drawable.ten_chervi))||(cardlist.get(whattacard).equals(R.drawable.ten_bubi)))
+                    {
+                        card_takes[4]=true;
+
+                    }
+                    else if ((cardlist.get(whattacard).equals(R.drawable.eight_vini))||(cardlist.get(whattacard).equals(R.drawable.eight_kresti))||
+                            (cardlist.get(whattacard).equals(R.drawable.eight_chervi))||(cardlist.get(whattacard).equals(R.drawable.eight_bubi)))
+                    {
+                      card_takes[6]=true;
+
+                    }
+
+                    else if ((cardlist.get(whattacard).equals(R.drawable.ace_vini))||(cardlist.get(whattacard).equals(R.drawable.ace_kresti))||
+                            (cardlist.get(whattacard).equals(R.drawable.ace_chervi))||(cardlist.get(whattacard).equals(R.drawable.new_ace)))
+                    {
+                        card_takes[0]=true;
+                    }
+                    else if ((cardlist.get(whattacard).equals(R.drawable.k_vini))||(cardlist.get(whattacard).equals(R.drawable.k_kresti))||
+                            (cardlist.get(whattacard).equals(R.drawable.k_chervi))||(cardlist.get(whattacard).equals(R.drawable.k_bubi)))
+                    {
+                        card_takes[1]=true;
+                    }
+                    else if ((cardlist.get(whattacard).equals(R.drawable.q_vini))||(cardlist.get(whattacard).equals(R.drawable.q_kresti))||
+                            (cardlist.get(whattacard).equals(R.drawable.q_chervi))||(cardlist.get(whattacard).equals(R.drawable.q_bubi)))
+                    {
+                        card_takes[2]=true;
+                    }
+                    else if ((cardlist.get(whattacard).equals(R.drawable.j_vini))||(cardlist.get(whattacard).equals(R.drawable.j_kresti))||
+                            (cardlist.get(whattacard).equals(R.drawable.j_chervi))||(cardlist.get(whattacard).equals(R.drawable.j_bubi)))
+                    {
+                        card_takes[3]=true;
+                    }
+                    else if ((cardlist.get(whattacard).equals(R.drawable.nine_vini))||(cardlist.get(whattacard).equals(R.drawable.nine_kresti))||
+                            (cardlist.get(whattacard).equals(R.drawable.nine_chervi))||(cardlist.get(whattacard).equals(R.drawable.nine_bubi)))
+                    {
+                        card_takes[5]=true;
+                    }
+
+                    else if ((cardlist.get(whattacard).equals(R.drawable.seven_vini))||(cardlist.get(whattacard).equals(R.drawable.seven_kresti))||
+                            (cardlist.get(whattacard).equals(R.drawable.seven_chervi))||(cardlist.get(whattacard).equals(R.drawable.seven_bubi)))
+                    {
+                        card_takes[7]=true;
+                    }
+
+                    else if ((cardlist.get(whattacard).equals(R.drawable.six_vini))||(cardlist.get(whattacard).equals(R.drawable.six_kresti))||
+                            (cardlist.get(whattacard).equals(R.drawable.six_chervi))||(cardlist.get(whattacard).equals(R.drawable.six_bubi)))
+                    {
+                        card_takes[8]=true;
+                    }
+
+
                     cardlist.remove(whattacard);
                     InitCardTaken();
+
                 }
 
 
@@ -370,7 +428,7 @@ public class players_two extends AppCompatActivity {
                     if (card_takes[0]==true)
                     {
                         BigPic.setImageResource(R.drawable.ace_chervi);
-                        MainText.setText("Выбери кто пьет");
+                        MainText.setText("Выбери кто пьет.");
                         Help_Text.setText("");
                     }
 
@@ -387,14 +445,14 @@ public class players_two extends AppCompatActivity {
                         BigPic.setImageResource(R.drawable.q_chervi);
                         MainText.setText("Рука");
                         Help_Text.setText("Нужно поднять руку вверх.\n" +
-                                "Последний поднявший пьет");
+                                "Последний поднявший пьет.");
                     }
                     else if(card_takes[3]==true)
                     {
                         BigPic.setImageResource(R.drawable.j_chervi);
                         MainText.setText("Действие");
                         Help_Text.setText("Установите действие, которое необходимо совершить перед тем как выпить.\n" +
-                                "Тот, кто забудет выполнить действие, пьет ");
+                                "Тот, кто забудет выполнить действие, пьет.");
                     }
                     else if(card_takes[4]==true)
                     {
@@ -403,16 +461,16 @@ public class players_two extends AppCompatActivity {
                         Help_Text.setText("У вас появится индикатор 10.\n" +
                                 "На любой ваш вопрос нельзя отвечать.\n" +
                                 "Тот, кто ответит на ваш вопрос, пьет.\n" +
-                                "Когда выпадает другая десятка, предыдущая аннулируется");
+                                "Когда выпадает другая десятка, предыдущая аннулируется.");
                     }
                     else if(card_takes[5]==true)
                     {
                         BigPic.setImageResource(R.drawable.nine_chervi);
                         MainText.setText("Тема");
                         Help_Text.setText("Задайте тему.\n" +
-                                "Например: Марки машин \n" +
-                                "Все по очереди называют марки машин\n" +
-                                "Тот, кто повторится или не сможет назвать, пьет .");
+                                "Например: Марки машин. \n" +
+                                "Все по очереди называют марки машин.\n" +
+                                "Тот, кто повторится или не сможет назвать, пьет.");
                     }
                     else if(card_takes[6]==true)
                     {
@@ -429,14 +487,14 @@ public class players_two extends AppCompatActivity {
                         MainText.setText("Счет");
                         Help_Text.setText("С того кто вытянул 7 начинается счет.\n" +
                                 "Все по очереди считают, нельзя называть числа кратные 7 и числа где присутсвует 7.\n" +
-                                "Тот, кто ошибется, пьет .");
+                                "Тот, кто ошибется, пьет.");
                     }
 
                     else if(card_takes[8]==true)
                     {
                         BigPic.setImageResource(R.drawable.six_chervi);
-                        MainText.setText("Пьешь сам");
-                        Help_Text.setText("Выпей сам");
+                        MainText.setText("Пьешь сам.");
+                        Help_Text.setText("Выпей сам.");
                     }
 
 
@@ -465,7 +523,7 @@ public class players_two extends AppCompatActivity {
                     what_eight= finalI;
                     sure_eight=true;
                     SureEight.setVisibility(View.VISIBLE);
-                    InfoButton.setVisibility(View.INVISIBLE);
+
                    HideGameTable();
 
                 }
@@ -478,7 +536,7 @@ public class players_two extends AppCompatActivity {
               had_eight[what_eight]=false;
               Eight[what_eight].setVisibility(View.INVISIBLE);
               SureEight.setVisibility(View.INVISIBLE);
-                InfoButton.setVisibility(View.VISIBLE);
+
                 sure_eight=false;
                InitGameTable();
 
@@ -492,7 +550,7 @@ public class players_two extends AppCompatActivity {
                 sure_eight=false;
                 SureEight.setVisibility(View.INVISIBLE);
                 InitGameTable();
-                InfoButton.setVisibility(View.VISIBLE);
+
 
             }
         });

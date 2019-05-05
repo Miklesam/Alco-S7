@@ -12,7 +12,10 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".five_p"></activity>
+        <activity android:name=".eight_p"></activity>
+        <activity android:name=".seven_p" />
+        <activity android:name=".six_p" />
+        <activity android:name=".five_p" />
         <activity android:name=".Rools_activity" />
         <activity android:name=".players_two" />
         <activity android:name=".number_of_players" />
