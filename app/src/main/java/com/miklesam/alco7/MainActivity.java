@@ -29,7 +29,7 @@ public class MainActivity extends AppCompatActivity {
         MobileAds.initialize(this,"ca-app-pub-3940256099942544~3347511713");
 
         mAdview=(AdView)findViewById(R.id.adView);
-        AdRequest adRequest = new AdRequest.Builder().addTestDevice(AdRequest.DEVICE_ID_EMULATOR).build();
+        AdRequest adRequest = new AdRequest.Builder().build();
         mAdview.loadAd(adRequest);
 
 

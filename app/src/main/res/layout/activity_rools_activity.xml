@@ -40,7 +40,7 @@
         <ImageView
             android:id="@+id/minAce"
             android:layout_width="100sp"
-            android:layout_height="100sp"
+            android:layout_height="140sp"
 
             />
         <TextView
@@ -59,7 +59,7 @@
             <ImageView
                 android:id="@+id/minKing"
                 android:layout_width="100sp"
-                android:layout_height="100sp"
+                android:layout_height="140sp"
 
                 />
             <TextView
@@ -78,7 +78,7 @@
             android:id="@+id/Queen" >
             <ImageView
                 android:layout_width="100sp"
-                android:layout_height="100sp"
+                android:layout_height="140sp"
                 android:id="@+id/minQueen"
 
                 />
@@ -99,7 +99,7 @@
             <ImageView
                 android:id="@+id/minJack"
                 android:layout_width="100sp"
-                android:layout_height="100sp"
+                android:layout_height="140sp"
 
 
                 />
@@ -119,7 +119,7 @@
             android:id="@+id/Ten" >
             <ImageView
                 android:layout_width="100sp"
-                android:layout_height="100sp"
+                android:layout_height="140sp"
                 android:id="@+id/minTen"
 
                 />
@@ -139,7 +139,7 @@
             android:id="@+id/Nine" >
             <ImageView
                 android:layout_width="100sp"
-                android:layout_height="100sp"
+                android:layout_height="140sp"
                 android:id="@+id/minNine"
 
                 />
@@ -158,7 +158,7 @@
             android:id="@+id/Eight" >
             <ImageView
                 android:layout_width="100sp"
-                android:layout_height="100sp"
+                android:layout_height="140sp"
                 android:id="@+id/minEight"
 
                 />
@@ -178,7 +178,7 @@
             android:id="@+id/Seven" >
             <ImageView
                 android:layout_width="100sp"
-                android:layout_height="100sp"
+                android:layout_height="140sp"
                 android:id="@+id/minSeven"
 
                 />
@@ -198,7 +198,7 @@
         android:id="@+id/Six" >
         <ImageView
             android:layout_width="100sp"
-            android:layout_height="100sp"
+            android:layout_height="140sp"
             android:id="@+id/minSix"
 
             />
@@ -223,8 +223,8 @@
     android:layout_height="wrap_content"
     android:orientation="vertical">
     <ImageView
-        android:layout_width="wrap_content"
-        android:layout_height="400sp"
+        android:layout_width="200sp"
+        android:layout_height="300sp"
         android:layout_gravity="top"
         android:id="@+id/big_pic"
         />

@@ -49,7 +49,7 @@ public class number_of_players extends AppCompatActivity {
 
                 count = (String) PlayersNum.getText();
                 int pluscnt=Integer.parseInt(count);
-                if(pluscnt<8)
+                if(pluscnt<5)
                 {
                     pluscnt++;
                     PlayersNum.setText(String.valueOf(pluscnt));

@@ -13,6 +13,7 @@
     android:layout_height="wrap_content"
     android:layout_alignParentTop="true"
     android:layout_alignParentRight="true"
+    android:visibility="invisible"
     android:id="@+id/Info_butt"
     android:text="Info"
     />
@@ -74,220 +75,22 @@
         android:background="@drawable/fon"
         android:visibility="invisible">
 
-        <ScrollView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:scrollbars="none">
-
-
-
-            <LinearLayout
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:orientation="vertical"
-
-                >
-
-
-                <LinearLayout
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:orientation="horizontal"
-                    android:id="@+id/Ace"
-                    >
-                    <ImageView
-                        android:id="@+id/minAce"
-                        android:layout_width="100sp"
-                        android:layout_height="100sp"
-
-                        />
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_gravity="center"
-                        android:text="Туз"/>
-
-                </LinearLayout>
-
-                <LinearLayout
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:orientation="horizontal"
-                    android:id="@+id/king">
-                    <ImageView
-                        android:id="@+id/minKing"
-                        android:layout_width="100sp"
-                        android:layout_height="100sp"
-
-                        />
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="Король"
-                        android:layout_gravity="center"/>
-
-                </LinearLayout>
-
-
-                <LinearLayout
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:orientation="horizontal"
-                    android:id="@+id/Queen" >
-                    <ImageView
-                        android:layout_width="100sp"
-                        android:layout_height="100sp"
-                        android:id="@+id/minQueen"
-
-                        />
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="Дама"
-                        android:layout_gravity="center"/>
-
-                </LinearLayout>
-
-
-                <LinearLayout
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:orientation="horizontal"
-                    android:id="@+id/Jack" >
-                    <ImageView
-                        android:id="@+id/minJack"
-                        android:layout_width="100sp"
-                        android:layout_height="100sp"
-
-
-                        />
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="Валет"
-                        android:layout_gravity="center"/>
-
-                </LinearLayout>
-
-
-                <LinearLayout
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:orientation="horizontal"
-                    android:id="@+id/Ten" >
-                    <ImageView
-                        android:layout_width="100sp"
-                        android:layout_height="100sp"
-                        android:id="@+id/minTen"
-
-                        />
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="Десятка"
-                        android:layout_gravity="center"/>
-
-                </LinearLayout>
-
-
-                <LinearLayout
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:orientation="horizontal"
-                    android:id="@+id/Nine" >
-                    <ImageView
-                        android:layout_width="100sp"
-                        android:layout_height="100sp"
-                        android:id="@+id/minNine"
-
-                        />
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="Девятка"
-                        android:layout_gravity="center"/>
-
-                </LinearLayout>
-
-                <LinearLayout
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:orientation="horizontal"
-                    android:id="@+id/Eight" >
-                    <ImageView
-                        android:layout_width="100sp"
-                        android:layout_height="100sp"
-                        android:id="@+id/minEight"
-
-                        />
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="Восьмерка"
-                        android:layout_gravity="center"/>
-
-                </LinearLayout>
-
-
-                <LinearLayout
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:orientation="horizontal"
-                    android:id="@+id/Seven" >
-                    <ImageView
-                        android:layout_width="100sp"
-                        android:layout_height="100sp"
-                        android:id="@+id/minSeven"
-
-                        />
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="Семерка"
-                        android:layout_gravity="center"/>
-
-                </LinearLayout>
-
-
-                <LinearLayout
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:orientation="horizontal"
-                    android:id="@+id/Six" >
-                    <ImageView
-                        android:layout_width="100sp"
-                        android:layout_height="100sp"
-                        android:id="@+id/minSix"
-
-                        />
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="Шестерка"
-                        android:layout_gravity="center"/>
-
-                </LinearLayout>
-
-
-
-            </LinearLayout>
-
-
-        </ScrollView>
-
+        <ImageView
+            android:layout_marginTop="20sp"
+            android:layout_width="200sp"
+            android:layout_height="300sp"
+            android:layout_gravity="top"
+            android:id="@+id/big_pic"
+            />
 
         <LinearLayout
+            android:layout_marginTop="20sp"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:orientation="vertical">
-            <ImageView
-                android:layout_width="300sp"
-                android:layout_height="200sp"
-                android:layout_gravity="top"
-                android:id="@+id/big_pic"
-                />
 
             <TextView
+
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:id="@+id/Main_Text"
@@ -317,11 +120,11 @@
     <Button
         android:id="@+id/startgame"
         android:layout_width="200sp"
-        android:layout_height="100sp"
+        android:layout_height="70sp"
         android:layout_centerVertical="true"
         android:layout_alignParentRight="true"
         android:visibility="invisible"
-        android:background="@drawable/nachalo"
+        android:background="@drawable/start_new"
 
         />
 
@@ -329,27 +132,27 @@
     <Button
         android:id="@+id/throwcard"
         android:layout_width="200sp"
-        android:layout_height="100sp"
+        android:layout_height="80sp"
         android:layout_centerVertical="true"
         android:layout_alignParentRight="true"
         android:visibility="invisible"
-        android:background="@drawable/sbros"
+        android:background="@drawable/new_sbross"
        />
 
     <Button
         android:id="@+id/back_to_menu"
-        android:layout_width="250sp"
-        android:layout_height="100sp"
+        android:layout_width="200sp"
+        android:layout_height="80sp"
         android:layout_centerVertical="true"
         android:layout_centerHorizontal="true"
         android:visibility="invisible"
-        android:background="@drawable/sbros"
+        android:background="@drawable/new_sbross"
         />
 
 
     <ImageView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="200sp"
+        android:layout_height="300sp"
         android:id="@+id/card_taken"
         android:layout_centerHorizontal="true"
         android:layout_centerVertical="true"
@@ -367,10 +170,7 @@
         >
 
 
-
-
-
-        <LinearLayout
+ <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:orientation="horizontal">
@@ -441,10 +241,6 @@
         android:layout_centerVertical="true"
         android:layout_alignParentLeft="true"
         >
-
-
-
-
 
 
         <ImageView

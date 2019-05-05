@@ -42,16 +42,16 @@ public class Rools_activity extends AppCompatActivity {
         final TextView MainText = findViewById(R.id.Main_Text);
         final  TextView Help_Text =findViewById(R.id.Help_Text);
 
-        MinAce.setImageResource(R.drawable.mini_ace_chervi);
-        MinKing.setImageResource(R.drawable.mini_k_chervi);
-        MinQueen.setImageResource(R.drawable.mini_q_chervi);
-        MinJack.setImageResource(R.drawable.mini_j_chervi);
-        MinTen.setImageResource(R.drawable.mini_ten_chervi);
-        MinNine.setImageResource(R.drawable.mini_nine_chervi);
-        MinEight.setImageResource(R.drawable.mini_eight_chervi);
-        MinSeven.setImageResource(R.drawable.mini_seven_chervi);
-        MinSix.setImageResource(R.drawable.mini_six_chervi);
-        BigPic.setImageResource(R.drawable.ace_chervi);
+        MinAce.setImageResource(R.drawable.small_ace);
+        MinKing.setImageResource(R.drawable.small_king);
+        MinQueen.setImageResource(R.drawable.small_queen);
+        MinJack.setImageResource(R.drawable.small_jack);
+        MinTen.setImageResource(R.drawable.small_ten);
+        MinNine.setImageResource(R.drawable.small_nine);
+        MinEight.setImageResource(R.drawable.small_eight);
+        MinSeven.setImageResource(R.drawable.small_seven);
+        MinSix.setImageResource(R.drawable.small_six);
+        BigPic.setImageResource(R.drawable.mid_ace);
         MainText.setText("Выбери кто пьет");
 
         final LinearLayout Ace = findViewById(R.id.Ace);

@@ -7,7 +7,8 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     tools:context=".MainActivity"
-    android:background="@drawable/table">
+    android:background="@drawable/table"
+    >
 
 
     <LinearLayout
@@ -24,19 +25,19 @@
             android:id="@+id/game"
             android:layout_centerHorizontal="true"
             android:layout_centerVertical="true"
-            android:layout_width="150dp"
-            android:layout_height="50dp"
-            android:background="@drawable/igra"
+            android:layout_width="150sp"
+            android:layout_height="50sp"
+            android:background="@drawable/game_new"
 
             />
 
         <Button
-            android:layout_marginTop="50dp"
+            android:layout_marginTop="50sp"
             android:id="@+id/rools"
             android:layout_gravity="center"
-            android:layout_width="150dp"
-            android:layout_height="50dp"
-            android:background="@drawable/rools"
+            android:layout_width="150sp"
+            android:layout_height="50sp"
+            android:background="@drawable/pravila_new"
             />
 
 
